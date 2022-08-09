@@ -5,23 +5,18 @@
  */
 package com.mycompany.spring_mvc_project_final.main;
 
-import com.mycompany.spring_mvc_project_final.entities.BookingEntity;
-import com.mycompany.spring_mvc_project_final.entities.PromotionEntity;
-import com.mycompany.spring_mvc_project_final.enums.SeatStatusEnum;
 import com.mycompany.spring_mvc_project_final.service.PromotionService;
-
-import com.mycompany.spring_mvc_project_final.utils.FlightUtilis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.sql.Timestamp;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.text.ParseException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  *
@@ -33,11 +28,15 @@ public class Main {
     PromotionService promotionService;
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException,Exception {
+        testConnection();
         System.out.println("password===>" + encrytePassword("manager"));
-        LocalDateTime localDateTime= LocalDateTime.now();
-        Timestamp timestamp = Timestamp.valueOf(localDateTime);
-        System.out.println(timestamp);
+        LocalDateTime from = LocalDateTime.of(LocalDate.parse("2022-04-03", DateTimeFormatter.ofPattern("yyyy-MM-dd")),LocalTime.parse("23:20",DateTimeFormatter.ofPattern("HH:mm")));
+        LocalDateTime to = LocalDateTime.of(LocalDate.parse("2022-04-04", DateTimeFormatter.ofPattern("yyyy-MM-dd")),LocalTime.parse("23:30",DateTimeFormatter.ofPattern("HH:mm")));
+        Duration duration = Duration.between(from, to);
+
+
+        System.out.println(duration.toHoursPart());
         /*BookingEntity bookingEntity = new BookingEntity();
         LocalDateTime from = LocalDateTime.of(LocalDate.parse("2022-04-03", DateTimeFormatter.ofPattern("yyyy-MM-dd")),LocalTime.parse("23:20",DateTimeFormatter.ofPattern("HH:mm")));
         LocalDateTime to = LocalDateTime.of(LocalDate.parse("2022-04-06", DateTimeFormatter.ofPattern("yyyy-MM-dd")),LocalTime.parse("23:30",DateTimeFormatter.ofPattern("HH:mm")));
@@ -52,15 +51,22 @@ public class Main {
         System.out.println(time1);
         System.out.println(getCharForNumber(12));*/
 
-        String abc = "12345n";
+        /*String abc = "12345n";
 
         SeatStatusEnum test = SeatStatusEnum.AVAILABLE;
 
         if (test.toString().equals("AVAILABLE")){
             System.out.println("true");
-        }
+        }*/
 
+    /*    Date date = new SimpleDateFormat("yyyy-MM-dd").parse(LocalDate.now().toString());
+        System.out.println(date);*/
 
+        LocalDateTime dateTime = LocalDateTime.now().plusDays(1);
+        System.out.println(dateTime);
+        LocalDateTime dateTime1 = LocalDateTime.of(LocalDate.now(),LocalTime.now());
+        LocalTime time = LocalTime.now().plusHours(23);
+        System.out.println(time.atDate(LocalDate.now()));
     }
 
     public static String getCharForNumber(int i) {
@@ -70,5 +76,15 @@ public class Main {
     public static String encrytePassword(String password) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder.encode(password);
+    }
+    public static void testConnection() throws Exception{
+        try{
+            String url="jdbc:oracle:thin:@localhost:1521:orcl1";
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection conn= DriverManager.getConnection(url,"speedy","speedy");
+            System.out.printf("ok");
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 }

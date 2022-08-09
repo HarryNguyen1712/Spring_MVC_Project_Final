@@ -11,8 +11,7 @@ import java.time.LocalDate;
 public interface PaymentRepository extends CrudRepository<PaymentEntity,Integer> {
 
     @Query(value = "select sum(amount) from payment",nativeQuery = true)
-    double sum();
-
+    Double sum();
     @Query(value = "select sum(p.amount) FROM PaymentEntity p WHERE p.paymentDate BETWEEN ?1 AND ?2")
     Double getSumIncome(LocalDate startDate, LocalDate endDate);
 }

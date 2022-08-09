@@ -65,48 +65,35 @@
         #weather {
             margin-top: 20px;
         }
+
+        .time {
+            font-family: cursive;
+            font-size: 20px;
+            margin-bottom: 0px;
+        }
+
+        .name {
+            color: #be5a3a;
+            font-family: monospace;
+            font-size: large;
+        }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-light bg-light" style="min-height: 60px; margin-bottom: 0; border: 0;
-                                                background: linear-gradient(90deg, rgba(5,41,48,1) 19%, rgba(107,135,140,1) 42%, rgba(204,235,241,1) 73%);">
-    <a class="navbar-brand" href="index">
-        <img src="${pageContext.request.contextPath}/resources/assets/img/logo.png"
-             alt="Flight Template" class="d-inline-block align-text-top"
-             style="max-width: 70%; padding-left: 2rem;">
-    </a>
-    <div class="clearfix" style="margin-right: 30px">
-        <%--<a type="button" class="btn btn-outline-warning btn-lg float-right" href="#">Login</a>
-        <a class="float-lg-right" style="font-size: large;margin-right: 30px;text-decoration: none;" href="#">Manage my
-            bookings</a>--%>
-        <sec:authorize access="isAuthenticated()">
-            <sec:authorize access="hasRole('ROLE_USER')">
-                <a type="button" class="btn btn-outline-warning btn-lg float-right" href="logout">Logout</a>
-                <a class="btn btn-outline-primary btn-lg float-right mr-5" href="user/home">Manage Account</a>
-            </sec:authorize>
-            <sec:authorize access="hasRole('ROLE_ADMIN')">
-                <a type="button" class="btn btn-outline-warning btn-lg float-right" href="logout">Logout</a>
-                <a class="btn btn-outline-primary btn-lg float-right mr-5" href="admin/home">Manager</a>
-            </sec:authorize>
-        </sec:authorize>
-        <sec:authorize access="!isAuthenticated()">
-            <a type="button" class="btn btn-outline-warning btn-lg float-right" href="login">Login</a>
-        </sec:authorize>
-    </div>
-</nav>
-<div class="container">
+<jsp:include page="include/header1.jsp"/>
+<%--<div class="container">
     <div class="row">
         <div class="col-md-12">
             <h2 id="fight_route">
                 <i></i>
                 <span>Choose your flight</span><br>
-                <%--<strong>${flight_route.departureAirport.name}</strong>
+                &lt;%&ndash;<strong>${flight_route.departureAirport.name}</strong>
                 <span> (${flight_route.departureAirport.code}) to </span>
-                <strong>${flight_route.destinationAirport.name} </strong><span> (${flight_route.destinationAirport.code})</span>--%>
+                <strong>${flight_route.destinationAirport.name} </strong><span> (${flight_route.destinationAirport.code})</span>&ndash;%&gt;
             </h2>
         </div>
     </div>
-</div>
+</div>--%>
 <div id="weather">
     <div class="container">
         <div class="row">
@@ -139,16 +126,19 @@
                                                         <div class="container">
                                                             <div class="row row-cols-3">
                                                                 <div class="col">
-                                                                    <p>${departFlight.departureTime}</p>
-                                                                    <p>${departFlight.flightRoute.departureAirport.code}</p>
+                                                                    <p>Departure</p>
+                                                                    <p class="time">${departFlight.departureTime}</p>
+                                                                    <p>${departFlight.flightRoute.departureAirport.name}<i style="font-size: 10px">(${departFlight.flightRoute.departureAirport.code})</i></p>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <p>${departFlight.flightRoute.duration}</p>
-                                                                    <p>${departFlight.aircraft.name}</p>
+                                                                    <p>Duration</p>
+                                                                    <p class="time">${departFlight.flightRoute.duration.toHoursPart()}h:${departFlight.flightRoute.duration.toMinutesPart()}m</p>
+                                                                    <p class="name">${departFlight.aircraft.name}</p>
                                                                 </div>
                                                                 <div class="col">
-                                                                    <p>${departFlight.arrivalTime}</p>
-                                                                    <p>${departFlight.flightRoute.destinationAirport.code}</p>
+                                                                    <p>Destination</p>
+                                                                    <p class="time">${departFlight.arrivalTime}</p>
+                                                                    <p>${departFlight.flightRoute.destinationAirport.name}<i style="font-size: 10px">(${departFlight.flightRoute.destinationAirport.code})</i></p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -161,16 +151,19 @@
                                                             <div class="container">
                                                                 <div class="row row-cols-3">
                                                                     <div class="col">
-                                                                        <p>${returnFlight.departureTime}</p>
-                                                                        <p>${returnFlight.flightRoute.departureAirport.code}</p>
+                                                                        <p>Departure</p>
+                                                                        <p class="time">${returnFlight.departureTime}</p>
+                                                                        <p>${returnFlight.flightRoute.departureAirport.name}<i style="font-size: 10px">(${returnFlight.flightRoute.departureAirport.code})</i></p>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <p>${returnFlight.flightRoute.duration}</p>
-                                                                        <p>${returnFlight.aircraft.name}</p>
+                                                                        <p>Duration</p>
+                                                                        <p class="time">${returnFlight.flightRoute.duration.toHoursPart()}h:${returnFlight.flightRoute.duration.toMinutesPart()}m</p>
+                                                                        <p class="name">${returnFlight.aircraft.name}</p>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <p>${returnFlight.arrivalTime}</p>
-                                                                        <p>${returnFlight.flightRoute.destinationAirport.code}</p>
+                                                                        <p>Destination</p>
+                                                                        <p class="time">${returnFlight.arrivalTime}</p>
+                                                                        <p>${returnFlight.flightRoute.destinationAirport.name}<i style="font-size: 10px">(${returnFlight.flightRoute.destinationAirport.code})</i></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -224,12 +217,13 @@
                                                                     <input type="hidden" name="returnSeatType"
                                                                            value="${returnSeatType}">
                                                                 </c:if>
-                                                                <label for="quantity">Enter the number of passenger</label>
+                                                                <label for="quantity">Enter the number of
+                                                                    passenger</label>
                                                                 <input class="form-control" id="quantity" type="number"
                                                                        min="1" max="5" name="quantity" value="1"
                                                                        required>
                                                                 <button type="submit"
-                                                                        class="btn btn-outline-primary btn-lg">Continue
+                                                                        class="btn btn-outline-primary btn-lg mt-2">Continue
                                                                 </button>
                                                             </form:form>
                                                         </div>
@@ -248,28 +242,7 @@
     </div>
 </div>
 
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="social-icons">
-                    <li><a href="https://www.facebook.com/tooplate"><i style="margin-top: 30px;"
-                                                                       class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-rss"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-behance"></i></a></li>
-                </ul>
-            </div>
-            <div class="col-md-12">
-                <p>Copyright &copy; 2018 Flight Tour and Travel Company
-
-                    | Design: <a href="https://www.tooplate.com/view/2093-flight" target="_parent"><em>Flight</em></a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
+<jsp:include page="include/footer1.jsp"/>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="${pageContext.request.contextPath}/resources/assets/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 

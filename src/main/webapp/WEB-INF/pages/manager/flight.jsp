@@ -153,9 +153,12 @@
                                     </li>
                                 </ul>
                             </div>
-
+                            <div style="text-align: center">
+                            <p style="color: red;font-size: 2em" ><c:out value="${message}"></c:out></p>
+                            </div>
                             <form:form id="formPromotion" class="card-body row" modelAttribute="flightObject"
                                        method="get" action="addNewFlight">
+                                <input type="text" name="id" hidden readonly value="${flightObject.id} ">
                                 <div class="col-lg-4 p-t-20">
                                     <label>Aircraft</label>
                                     <select name="aircraft.id" class=" form-control" required>
@@ -205,20 +208,19 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-t-20">
-                                    <header>Time Picker</header>
+                                    <header>Departure Time</header>
                                     <div class="p-t-20">
                                         <div class="form-control-wrapper">
                                             <input type="text" id="time" class="floating-label mdl-textfield__input"
                                                    placeholder="departureTime" name="departureTime"
-                                                   value="${flightObject.departureTime}">
+                                                   value="${flightObject.departureTime}" required >
                                         </div>
                                     </div>
-
                                 </div>
+                                <input name="promotion" value="0" hidden >
                                 <div class="col-lg-4 p-t-20">
                                     <label>Promotions</label>
-                                    <select name="promotionEntities" id="multiselect" class=" form-control select" multiple required>
-
+                                    <select name="promotion" id="multiselect" class=" form-control select" multiple >
                                         <c:forEach items="${listPromotion}" var="item">
                                             <c:choose>
                                                 <c:when test="${myfn:contains(flightObject.promotionEntities,item)}">
@@ -226,7 +228,7 @@
                                                             selected>${item.name}</option>
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <option value="${item.id}">${item.name}</option>
+                                                    <option type="checkbox" value="${item.id}">${item.name}</option>
                                                 </c:otherwise>
                                             </c:choose>
                                         </c:forEach>
@@ -318,6 +320,15 @@
 
     });
 
+    $(document).ready(function () {
+        $('#multiselect').on('change', function () {
+           /* alert($('#multiselect').val());*/
+            if ($('#multiselect').val() === ''  || $('#multiselect').val() === null){
+                alert("heheh")
+                $('#multiselect').val('0');
+            }
+        });
+    })
 
 </script>
 <!-- end js include path -->

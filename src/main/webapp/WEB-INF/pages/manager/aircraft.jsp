@@ -158,7 +158,7 @@
                   </li>
                 </ul>
               </div>
-              <form:form class="card-body row" method="post" action="addAircraft"  enctype="multipart/form-data" modelAttribute="aircraft">
+              <form:form class="card-body row" method="post" action="addAircraft" modelAttribute="aircraft">
                 <input type="hidden" name="id"  value="${aircraft.id}"  readonly>
                 <div class="col-lg-6 p-t-20">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width ">
@@ -187,11 +187,11 @@
                 <div class="col-lg-6 p-t-20">
                   <label style="color: #AAAAAA !important;
     font-size: 13px !important;">Status</label>
-                  <select name="aircraftStatus.status" class=" form-control" required>
+                  <select name="aircraftStatus" class=" form-control" required>
                     <option value="">Select Status</option>
                     <c:forEach items="${ListAircraftStatus}" var="item">
                       <c:choose>
-                        <c:when test="${aircraft.aircraftStatus.status==item}">
+                        <c:when test="${aircraft.aircraftStatus == item}">
                           <option value="${item}"
                                   selected>${item}</option>
                         </c:when>
@@ -202,11 +202,11 @@
                     </c:forEach>
                   </select>
                 </div>
-                <div class="col-lg-6 p-t-20">
+<%--                <div class="col-lg-6 p-t-20">
                   <label style="color: #AAAAAA !important;
     font-size: 13px !important;">Aircraft Image</label>
                   <div ><input type="file" name="file" multiple="multiple"  /></div>
-                </div>
+                </div>--%>
                 <div class="col-lg-12 p-t-20 text-center">
                   <input type="submit"
                          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink"

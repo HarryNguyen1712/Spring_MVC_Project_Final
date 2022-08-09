@@ -9,7 +9,115 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df8bed81-8729-4a92-b83b-7657d027d969" name="Changes" comment="" />
+    <list default="true" id="df8bed81-8729-4a92-b83b-7657d027d969" name="Changes" comment="Update project">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/GuestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/model/Flight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/model/ServiceBookingList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/ConstantUtilis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/EmailSenderUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jdbc-oracle.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/ojdbc10-19.15.0.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/ojdbc8-21.6.0.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/include/footer1.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/include/header1.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/invoice.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/assets/img/invoice/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/assets/img/invoice/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-04-danang1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-04-hainoi1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-04-saigon1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-05-hue1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-05-phuquoc1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-05-thanhhoa1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-06-dalat1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-11-01-27-extraMeal.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-11-01-29-insurance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-11-01-29-insurance2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-14-07-30-" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-14-07-31-" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/luggage1.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/JPAConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/JPAConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/MailSenderConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/MailSenderConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/MvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/MvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/SessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/AircraftSeatsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/AircraftSeatsEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/AircraftsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/AircraftsEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/BookingDetailEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/BookingDetailEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/CreditCardEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/CreditCardEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/FeeAndCarrierChargesEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/FeeAndCarrierChargesEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/FlightRoutesEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/FlightRoutesEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/ImageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/ImageEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/PromotionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/PromotionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/SeatsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/SeatsEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/ServiceBookingEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/ServiceBookingEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/UserRoleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/UserRoleEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/model/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/model/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/AircraftSeatsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/AircraftSeatsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/BookingDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/BookingDetailRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/FlightRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/FlightRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/FlightRoutesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/FlightRoutesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/PaymentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/PaymentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/PromotionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/PromotionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/AircraftSeatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/AircraftSeatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/BookingDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/BookingDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/FlightService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/FlightService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/FlightsRoutesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/FlightsRoutesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/ImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/PromotionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/PromotionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/AircraftSeatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/AircraftSeatUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/AircraftUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/AircraftUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/BookingDetailUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/BookingDetailUtilis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/BookingUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/BookingUtilis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/Convert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/Convert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/CreditCardUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/CreditCardUtilis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/FlightUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/FlightUtilis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/PromotionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/PromotionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/ServiceUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/ServiceUtilis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/UserUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/UserUtilis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/account_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/account_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/booking_details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/booking_details.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/booking_history.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/booking_history.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/done.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/done.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/flight_check.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/flight_check.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/include/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/include/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/aircraft.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/aircraft.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/airport_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/airport_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/booking_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/booking_detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/flight.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/flight.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/flight_route.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/flight_route.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/flight_route_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/flight_route_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/promotion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/promotion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/promotion_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/promotion_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/service_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/service_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/passenger.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/passenger.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/payment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/payment.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/seat_booking.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/seat_booking.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/service_booking.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/service_booking.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/booking_details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/booking_details.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/booking_history.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/booking_history.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/spring_mvc_project_final/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/spring_mvc_project_final/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/spring_mvc_project_final/repository/PaymentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/spring_mvc_project_final/repository/PaymentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/spring_mvc_project_final/service/PaymentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/spring_mvc_project_final/service/PaymentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/spring_mvc_project_final/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/spring_mvc_project_final/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/spring_mvc_project_final/repository/PaymentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/spring_mvc_project_final/repository/PaymentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/spring_mvc_project_final/service/PaymentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/spring_mvc_project_final/service/PaymentService.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +138,9 @@
         <option value="Jsp File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -73,33 +184,39 @@
     </option>
   </component>
   <component name="ProjectId" id="26uwJRnxQaH2IMJYfp9Xt1C2AZg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Spring_MVC_Project_Final&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;130ab46a667f7c122b8ada2d4f2effd3&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Speedy/OneDrive/Documents/GitHub/Spring_MVC_Project_Final",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "spring.configuration.checksum": "130ab46a667f7c122b8ada2d4f2effd3"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Speedy\OneDrive\Documents\GitHub\Spring_MVC_Project_Final" />
       <recent name="E:\Spring_MVC_Project_Final\src\main\webapp\resources-management\assets\css" />
       <recent name="E:\Spring_MVC_Project_Final\src\main\webapp\resources-management\assets\js" />
       <recent name="D:\Learn\Javafullstack\Final\Final1\Spring_MVC_Project_Final\src\main\webapp\WEB-INF\pages\user" />
       <recent name="D:\Learn\Javafullstack\Final\Final1\Spring_MVC_Project_Final\src\main\webapp\WEB-INF\pages" />
-      <recent name="D:\Iviettech\Project\Spring_MVC_Project_Final_2\Spring_MVC_Project_Final\src\main\webapp\WEB-INF\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Iviettech\Project\Spring_MVC_Project_Final_2\Spring_MVC_Project_Final\src\main\webapp\resources-management\datepicker" />
@@ -144,19 +261,6 @@
     </configuration>
     <configuration name="profile.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/Spring_MVC_Project_Final_war_exploded/WEB-INF/pages/manager/profile.jsp">
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Spring_MVC_Project_Final" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Spring_MVC_Project_Final" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Unnamed" type="TomeeConfiguration" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -723,26 +827,43 @@
       <workItem from="1656260748076" duration="988000" />
       <workItem from="1660024073010" duration="729000" />
       <workItem from="1660024815880" duration="305000" />
+      <workItem from="1660039309901" duration="55000" />
+      <workItem from="1660044679012" duration="1228000" />
     </task>
+    <task id="LOCAL-00001" summary="Update project">
+      <created>1660025407473</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660025407473</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update project">
+      <created>1660025419164</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660025419164</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/BookingController.java</url>
-          <line>46</line>
-          <properties class="com.mycompany.spring_mvc_project_final.controller.BookingController" method="booking">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update project" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Spring_MVC_Project_Final$Main.ic" NAME="Main Coverage Results" MODIFIED="1652086348639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

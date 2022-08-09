@@ -70,38 +70,29 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-light bg-light" style="min-height: 60px; margin-bottom: 0; border: 0;
-                                                background: linear-gradient(90deg, rgba(5,41,48,1) 19%, rgba(107,135,140,1) 42%, rgba(204,235,241,1) 73%);">
-    <a class="navbar-brand" href="index">
-        <img src="${pageContext.request.contextPath}/resources/assets/img/logo.png"
-             alt="Flight Template" class="d-inline-block align-text-top"
-             style="max-width: 70%; padding-left: 2rem;">
-    </a>
-    <div class="clearfix" style="margin-right: 30px">
-        <sec:authorize access="isAuthenticated()">
-            <sec:authorize access="hasRole('ROLE_USER')">
-                <a type="button" class="btn btn-outline-warning btn-lg float-right" href="logout">Logout</a>
-                <a class="btn btn-outline-primary btn-lg float-right mr-5" href="user/home">Manage Account</a>
-            </sec:authorize>
-            <sec:authorize access="hasRole('ROLE_ADMIN')">
-                <a type="button" class="btn btn-outline-warning btn-lg float-right" href="logout">Logout</a>
-                <a class="btn btn-outline-primary btn-lg float-right mr-5" href="admin/home">Manager</a>
-            </sec:authorize>
-        </sec:authorize>
-        <sec:authorize access="!isAuthenticated()">
-            <a type="button" class="btn btn-outline-warning btn-lg float-right" href="login">Login</a>
-        </sec:authorize>
-    </div>
-</nav>
+<jsp:include page="include/header1.jsp"/>
+<c:if test="${check.equals('return')}">
+    <c:set var="flight" value="${booking.returnFlight}"/>
+    <c:set var="seatList" value="${booking.returnSeatList}"/>
+    <c:set var="seatType" value="${booking.flightAndSeat.returnSeatType}"/>
+</c:if>
+<c:if test="${check.equals('depart')}">
+    <c:set var="flight" value="${booking.departFlight}"/>
+    <c:set var="seatList" value="${booking.departSeatList}"/>
+    <c:set var="seatType" value="${booking.flightAndSeat.departSeatType}"/>
+</c:if>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <h2 id="fight_route">
                 <i></i>
-                <span>Choose your flight</span><br>
-                <%--<strong>${flight_route.departureAirport.name}</strong>
-                <span> (${flight_route.departureAirport.code}) to </span>
-                <strong>${flight_route.destinationAirport.name} </strong><span> (${flight_route.destinationAirport.code})</span>--%>
+                <strong>${flight.flightRoute.departureAirport.name}</strong>
+                <span> (${flight.flightRoute.departureAirport.code}) to </span>
+                <strong>${flight.flightRoute.destinationAirport.name} </strong>
+                <span> (${flight.flightRoute.destinationAirport.code})</span>
+                <br>
+                <br>
+                <span>Departure Date: ${flight.departure}</span>
             </h2>
         </div>
     </div>
@@ -127,32 +118,13 @@
                                            aria-readonly="true">Payment</a></li>--%>
                                 </ul>
                             </div>
-                            <div style="margin: 2em auto 2em auto" class="col-md-12">
-                                <div style="padding-top:2em " class="container-sm border border-primary rounded-pill">
-                                    <p>- Your personal data collected on this page are processed by Vietnam Airlines for
-                                        the purposes and the conditions listed in Vietnam Airlines Privacy Policy. </p>
-                                    <p>- To know more about how your personal data are processed and about your rights
-                                        (right to access, right to be forgotten, right to object...), please read and
-                                        accept our Privacy Policy.</p>
-                                </div>
-                            </div>
                             <div style="padding-top:5em " class="col-md-12">
-                                <div style="padding-top:2em " class="container-sm border border-primary rounded-pill">
-                                    <p>- - - - - -You have selected <i id="quantity">0</i> seats for a price of
-                                        <i id="price">$0</i> - - - - -
-                                        -</p>
+                                <div style="padding-top:2em " class=" border border-primary rounded-pill">
+                                    <p>---------------------------------------------------------------------------------------------------------------</p>
+                                    <p>  You have selected <i id="quantity">0</i> seats for a price of
+                                        <i id="price">$0</i></p>
                                 </div>
                             </div>
-                            <c:if test="${check.equals('return')}">
-                                <c:set var="flight" value="${booking.returnFlight}"/>
-                                <c:set var="seatList" value="${booking.returnSeatList}"/>
-                                <c:set var="seatType" value="${booking.flightAndSeat.returnSeatType}"/>
-                            </c:if>
-                            <c:if test="${check.equals('depart')}">
-                                <c:set var="flight" value="${booking.departFlight}"/>
-                                <c:set var="seatList" value="${booking.departSeatList}"/>
-                                <c:set var="seatType" value="${booking.flightAndSeat.departSeatType}"/>
-                            </c:if>
                             <div class="col-md-12">
                                 <section id="second-tab-group" class="weathergroup">
                                     <div id="monday">
@@ -176,6 +148,7 @@
                                                                 <c:forEach var="item"
                                                                            items="${flight.aircraftSeatsList}"
                                                                            varStatus="i">
+                                                                <c:if test="${item.seatsType.toString() == seatType}">
                                                                 <c:choose>
                                                                 <c:when test="${(i.index) % col != 0 }">
                                                                     <c:choose>
@@ -262,6 +235,7 @@
                                                                 </c:choose>
                                                                 </c:otherwise>
                                                                 </c:choose>
+                                                                </c:if>
                                                                 </c:forEach>
                                                             </ol>
                                                         </li>
@@ -269,10 +243,8 @@
                                                     <div class="exit exit--back fuselage">
                                                     </div>
                                                 </div>
-                                                <h1>${check}</h1>
-                                                <h1>${roundTrip.toString()}</h1>
                                                 <c:choose>
-                                                    <c:when test="${check.equals('depart') && roundTrip == true }">
+                                                    <c:when test="${check.equals('depart') && sessionScope.booking.flightAndSeat.ifRoundTrip() }">
                                                         <a id="submit" href="returnSeatBooking"
                                                            class="btn btn-lg btn-outline-success"
                                                            style="visibility: hidden">
@@ -299,33 +271,7 @@
         </div>
     </div>
 </div>
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="primary-button">
-                    <a href="#" class="scroll-top">Back To Top</a>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <ul class="social-icons">
-                    <li><a href="https://www.facebook.com/tooplate"><i style="margin-top: 30px;"
-                                                                       class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-rss"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-behance"></i></a></li>
-                </ul>
-            </div>
-            <div class="col-md-12">
-                <p>Copyright &copy; 2018 Flight Tour and Travel Company
-
-                    | Design: <a href="https://www.tooplate.com/view/2093-flight" target="_parent"><em>Flight</em></a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
+<jsp:include page="include/footer1.jsp"/>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
@@ -360,6 +306,10 @@
         }*/
 
         $('input[type="checkbox"]').change(function () {
+
+            setTimeout(function(){
+
+            },2000);
 
             let quantity = document.getElementById("quantity");
             /*let quantity = $('#quantity');*/
@@ -396,7 +346,16 @@
                         "flightId": ${flight.id}
                     },
                     success: function (data) {
-                        //response from controller
+                        if(data === false){
+                            alert("Error, Pls try again!!!");
+                            document.getElementById(id).checked = true;
+                            temp.attr('disabled', true);
+                        }
+                    },
+                    error:function (){
+                        alert("Error, Pls try again!!!");
+                        document.getElementById(id).checked = true;
+                        temp.attr('disabled', true);
                     }
                 })
             } else {
@@ -409,13 +368,25 @@
                     },
                     success: function (data) {
                         //response from controller
-                        if(data === false){
+                        if(data === 0){
                             alert("This seat has been ordered!!!")
                             document.getElementById(id).checked = false;
                             temp.removeAttr('disabled');
                             document.getElementById('submit').style.visibility = 'hidden';
                           /*  window.location.reload();*/
                         }
+                        else if (data === -1 ){
+                            alert("Error, Pls try again!!!");
+                            document.getElementById(id).checked = false;
+                            temp.removeAttr('disabled');
+                            document.getElementById('submit').style.visibility = 'hidden';
+                        }
+                    },
+                    error:function (){
+                        alert("Error, Pls try again!!!");
+                        document.getElementById(id).checked = false;
+                        temp.removeAttr('disabled');
+                        document.getElementById('submit').style.visibility = 'hidden';
                     }
                 })
             }

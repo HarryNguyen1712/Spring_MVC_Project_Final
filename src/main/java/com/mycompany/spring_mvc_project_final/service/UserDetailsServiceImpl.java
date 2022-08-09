@@ -19,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.HashSet;
@@ -57,9 +58,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public Iterable<UserEntity> findAll(){
         return userRepository.findAll();
     }
+
     public void save(UserEntity userEntity){
-        userRepository.save(userEntity);
+
+            userRepository.save(userEntity);
+
+
     }
+
     public UserEntity findByEmail(String email){
         return userRepository.findByEmailLikeAndStatusLike(email,UserStatus.ACTIVE);
     }
@@ -67,9 +73,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public void saveUser(UserEntity user){
         user.setPassword(SecurityUtils.encrytePassword(user.getPassword()));
         userRepository.save(user);
-     /*   UserEntity userTemp = userRepository.findByEmail(user.getEmail()).get();
-        UserRoleEntity userRole = new UserRoleEntity();
-        userRole.setId(userTemp.getId());*/
+
     }
 
 }

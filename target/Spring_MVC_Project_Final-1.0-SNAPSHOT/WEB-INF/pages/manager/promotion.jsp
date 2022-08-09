@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -144,18 +145,25 @@
                             </div>
                             <form:form id="formPromotion" class="card-body row" modelAttribute="promotion" method="get"
                                        action="addPromotion">
-                                <input type="text" name="id" value="${promotion.id}" disabled hidden>
-                                <input type="text" name="createDate" value="${promotion.startDate}" disabled hidden>
-                                <div class="col-lg-6 p-t-20">
+                                <input type="text" name="id" value="${promotion.id}"  hidden>
+                                <input type="text" name="createDate" value="${promotion.startDate}" hidden>
+                                <div class="col-lg-4 p-t-20">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                                         <input class="mdl-textfield__input" type="text" name="name" value="${promotion.name}" required  >
                                         <label class="mdl-textfield__label">Name</label>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 p-t-20">
+
+                                <div class="col-lg-4 p-t-20">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <input class="mdl-textfield__input" type="text" name="discount" value="${promotion.discount}" required>
-                                        <label class="mdl-textfield__label">Discount</label>
+                                        <input class="mdl-textfield__input" type="text" name="code" value="${promotion.code}" required  >
+                                        <label class="mdl-textfield__label">Code</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                        <input class="mdl-textfield__input" type="text" name="discount" value=" <fmt:formatNumber type = "number" minFractionDigits="0" value = "${promotion.discount}" />" required>
+                                        <label class="mdl-textfield__label">Discount(Percent)</label>
                                     </div>
                                 </div>
 
@@ -163,7 +171,7 @@
                                     <label >Start Date</label>
                                     <div class="form-group mb-4">
                                         <div class="datepicker date input-group p-0 shadow-sm">
-                                            <input type="text" placeholder="Start date" class="form-control py-4 px-4" id="startDate" name="startDate" value="${promotion.startDate}">
+                                            <input type="text" placeholder="Start date" class="form-control py-4 px-4" id="startDate" name="startDate" value="${promotion.startDate}" required>
                                             <%--<input type="text" placeholder="Start date" class="form-control py-4 px-4"  id="startDate" name="startDate" required >--%>
                                             <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-clock-o"></i></span></div>
                                         </div>
@@ -173,7 +181,7 @@
                                     <label >End Date</label>
                                     <div class="form-group mb-4">
                                         <div class="datepicker date input-group p-0 shadow-sm">
-                                            <input type="text" placeholder="End date" class="form-control py-4 px-4" id="endDate" name="endDate" value="${promotion.endDate}" >
+                                            <input type="text" placeholder="End date" class="form-control py-4 px-4" id="endDate" name="endDate" value="${promotion.endDate}"  required>
                                             <%--<input type="text" placeholder="End date" class="form-control py-4 px-4" id="endDate" name="endDate" required>--%>
                                             <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-clock-o"></i></span></div>
                                         </div>

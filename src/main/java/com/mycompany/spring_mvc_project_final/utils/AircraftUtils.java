@@ -12,12 +12,4 @@ public class AircraftUtils {
         aircraftsEntity.setAircraftStatus(AircrartsStatusEnum.valueOf(status));
     }
 
-    public static boolean checkAircraft(FlightsEntity flightsEntity, List<FlightsEntity> flightsEntityList){
-        for(FlightsEntity entity:flightsEntityList){
-            if(flightsEntity.getAircraft().getId()==entity.getAircraft().getId()){
-                return false;
-            }
-        }
-        return true;
-    }
 }

@@ -10,4 +10,8 @@ public class Convert {
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate();
     }
+
+    public static Date convertToDateViaInstant(LocalDate localDate){
+        return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+    }
 }

@@ -72,7 +72,6 @@
             <span class="form__span">or use your email account</span>--%>
             <input class="form__input" name="username" type="email" placeholder="Email" required>
             <input class="form__input" name="password" type="password" placeholder="Password" required>
-            <a class="form__link" href="forgot_password">Forgot your password?</a>
             <button class="form__button button submit">SIGN IN</button>
         </form>
     </div>

@@ -19,7 +19,7 @@ public class PromotionEntity {
     @Column(length = 30)
     private String name;
 
-    @Column(length = 30)
+    @Column(length=30)
     private String code;
 
     private double discount;

@@ -9,13 +9,11 @@ import com.mycompany.spring_mvc_project_final.entities.UserEntity;
 import com.mycompany.spring_mvc_project_final.enums.GenderEnum;
 import com.mycompany.spring_mvc_project_final.model.NewPassword;
 import com.mycompany.spring_mvc_project_final.model.StartDateEndDate;
-import com.mycompany.spring_mvc_project_final.model.test;
 import com.mycompany.spring_mvc_project_final.service.*;
 import com.mycompany.spring_mvc_project_final.utils.SecurityUtils;
 import com.mycompany.spring_mvc_project_final.utils.UserUtilis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -26,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("/user")
@@ -43,6 +42,11 @@ public class UserController {
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 
+    @Autowired
+    FlightService flightService;
+
+    @Autowired
+    CreditCardService creditCardService;
 
     @RequestMapping("/home")
     public String viewHome(Model model) {
@@ -65,8 +69,9 @@ public class UserController {
 
     @RequestMapping(value = "/booking_details", method = RequestMethod.GET)
     public String bookingDetailList(Model model, @RequestParam(name = "id") int id) {
-        model.addAttribute("listBookingDetail", bookingDetailService.findByBooking(bookingService.findById(id).get()));
-        model.addAttribute("idBooking", id);
+        model.addAttribute("flightList",flightService.findFlightlistByBookingDetails(bookingService.findById(id).get(),bookingDetailService));
+        model.addAttribute("listBookingDetail", bookingDetailService.findByBooking(id));
+        model.addAttribute("cancelDate",LocalDateTime.now().plusDays(1));
         return "user/booking_details";
     }
 
@@ -92,11 +97,24 @@ public class UserController {
 
         if(bCryptPasswordEncoder.matches(newPassword.getOldPassword(),userEntity.getPassword())){
             userEntity.setPassword(bCryptPasswordEncoder.encode(newPassword.getNewPassword()));
-
+        }
+        else {
+            model.addAttribute("message","Wrong pass!!!");
         }
         userDetailsService.save(userEntity);
        /* model.addAttribute("user",userEntity );
         model.addAttribute("genderList",genderService.findAll());*/
         return "redirect:/user/profile";
+    }
+
+    @RequestMapping(value = "/printInvoice",method = RequestMethod.GET)
+    public String printInvoice(Model model,@RequestParam(name="number")String booking_number){
+        if (bookingService.findByBookingNumber(booking_number).isPresent()) {
+            model.addAttribute("listBookingDetail",bookingDetailService.findByBookingNumber(booking_number));
+            model.addAttribute("booking", bookingService.findByBookingNumber(booking_number).get());
+            return "invoice";
+        }
+        else
+            return "redirect:/user/booking_history";
     }
 }

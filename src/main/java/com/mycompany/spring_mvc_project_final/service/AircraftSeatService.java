@@ -1,6 +1,7 @@
 package com.mycompany.spring_mvc_project_final.service;
 
 import com.mycompany.spring_mvc_project_final.entities.AircraftSeatsEntity;
+import com.mycompany.spring_mvc_project_final.entities.FlightsEntity;
 import com.mycompany.spring_mvc_project_final.entities.SeatsEntity;
 import com.mycompany.spring_mvc_project_final.repository.AircraftSeatsRepository;
 import com.mycompany.spring_mvc_project_final.repository.SeatRepository;
@@ -77,6 +78,10 @@ public class AircraftSeatService {
             aircraftSeatsEntities.addAll(aircraftSeatsCol);
         }
         return aircraftSeatsEntities;
+    }
+
+    public Iterable<AircraftSeatsEntity> findByFlight(FlightsEntity flight){
+        return aircraftSeatsRepository.findByFlight(flight);
     }
 
 }

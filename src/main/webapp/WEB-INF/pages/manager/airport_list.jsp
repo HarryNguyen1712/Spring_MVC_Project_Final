@@ -77,21 +77,21 @@
                                     <div class="card-head">
                                     </div>
                                     <div class="card-body ">
-                                        <form:form class="form-inline" method="post" action="addAirport" enctype="multipart/form-data" modelAttribute="airport" >
+                                        <form:form class="form-inline" method="post" enctype="multipart/form-data" action="addAirport"  modelAttribute="airport" >
                                             <input type="hidden" class="form-control" placeholder="name" name="id"
                                                    value="${airport.id}"/>
                                             <div class="form-group mx-sm-3 mb-2">
 
                                                 <input type="text" class="form-control" id="name" placeholder="name"
-                                                       name="name" value="${airport.name}"/>
+                                                       name="name" value="${airport.name}" required/>
                                             </div>
                                             <div class="form-group mx-sm-3 mb-2">
 
                                                 <input type="text" class="form-control" id="code" placeholder="code"
-                                                       name="code" value="${airport.code}"/>
+                                                       name="code" value="${airport.code}" required/>
                                             </div>
                                             <div class="form-group mx-sm-3 mb-2">
-                                                <div ><input type="file" name="file" multiple="multiple"  /></div>
+                                                <div ><input type="file" name="file" required /></div>
                                             </div>
                                             <input type="submit" class="btn btn-primary mb-2" value="Submit"/>
                                         </form:form>

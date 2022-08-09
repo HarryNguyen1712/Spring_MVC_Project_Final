@@ -102,6 +102,7 @@
 
 </head>
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-sidebar-color logo-dark">
+
 <div class="page-wrapper">
     <!-- start header -->
     <jsp:include page="../include/header.jsp"></jsp:include>
@@ -142,10 +143,10 @@
                             </div>
                             <form:form id="formPromotion" class="card-body row" modelAttribute="flightRoute" method="get"
                                        action="addFlightRoute">
-
+                                <input name="id" type="number" value="${flightRoute.id}" hidden readonly>
                                 <div class="col-lg-4 p-t-20">
                                         <label>Departure</label>
-                                        <select name="departureAirport.id" class=" form-control">
+                                        <select name="departureAirport.id" class=" form-control" required>
                                             <option value="">Select location</option>
                                             <c:forEach  items="${airports}" var="item">
                                                 <c:choose>
@@ -161,7 +162,7 @@
                                 </div>
                                 <div class="col-lg-4 p-t-20">
                                     <label>Destination</label>
-                                    <select name="destinationAirport.id" class=" form-control" >
+                                    <select name="destinationAirport.id" class=" form-control"  required>
                                         <option value="">Select location</option>
                                         <c:forEach  items="${airports}" var="item">
                                             <c:choose>
@@ -184,7 +185,14 @@
                                 <div class="col-lg-6 p-t-20">
                                     <label >Duration</label>
                                     <div class="form-control-wrapper">
-                                        <input type="text" class="form-control html-duration-picker" placeholder="Time" name="duration1" data-hide-seconds value="${flightRoute.duration.toHoursPart()}:${flightRoute.duration.toMinutesPart()}" required >
+                                        <c:choose>
+                                            <c:when test="${flightRoute.duration.toMinutesPart()==0}">
+                                                <input type="text" class="form-control html-duration-picker" placeholder="Time" name="duration1" data-hide-seconds value="${flightRoute.duration.toHoursPart()}:0${flightRoute.duration.toMinutesPart()}" required >
+                                            </c:when>
+                                            <c:otherwise>
+                                                <input type="text" class="form-control html-duration-picker" placeholder="Time" name="duration1" data-hide-seconds value="${flightRoute.duration.toHoursPart()}:${flightRoute.duration.toMinutesPart()}" required >
+                                            </c:otherwise>
+                                        </c:choose>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-t-20">

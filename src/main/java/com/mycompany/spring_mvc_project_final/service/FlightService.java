@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Access;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -55,7 +56,7 @@ public class FlightService {
     public List<FlightsEntity> findAvailableFlight(List<FlightsEntity> flightsEntities) {
         List<FlightsEntity> availableFlight = new ArrayList<>();
         for (FlightsEntity flight : flightsEntities) {
-            if (flight.getAircraft().getAircraftStatus() == AircrartsStatusEnum.ACTIVE) {
+            if (flight.getAircraft().getAircraftStatus() == AircrartsStatusEnum.ACTIVE && flight.getDeparture().isAfter(LocalDate.now())) {
                 for (AircraftSeatsEntity seat : flight.getAircraftSeatsList()) {
                     if(seat.getSeatsStatus() == SeatStatusEnum.AVAILABLE){
                         availableFlight.add(flight);
@@ -69,11 +70,11 @@ public class FlightService {
 
     @Transactional(rollbackFor = Exception.class)
     public void save(FlightsEntity flightsEntity,String[] strings) throws Exception{
+        try {
             flightsEntity.setAircraft(aircraftService.findById(flightsEntity.getAircraft().getId()).get());
             AircraftsEntity aircraftsEntity = aircraftService.findById(flightsEntity.getAircraft().getId()).get();
             flightsEntity.setPromotionEntities(new HashSet<>());
             PromotionUtils.saveById(strings, flightsEntity, promotionService);
-
 
             //save Seat and get Aircraft Seat list
             List<AircraftSeatsEntity> aircraftSeatsEntityList = aircraftSeatService.save(aircraftsEntity.getRow(), aircraftsEntity.getCol());
@@ -99,23 +100,31 @@ public class FlightService {
                 aircraftSeatService.save(entity);
             }
         }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     public List<FlightsEntity> findFlightlistByBookingDetails(BookingEntity bookingEntity,BookingDetailService bookingDetailService){
         List<FlightsEntity> flightsEntityList = new ArrayList<>();
-        int id= 1;
-        Iterator<BookingDetailEntity> iterator= bookingDetailService.findByBooking(bookingEntity).iterator();
-        List<BookingDetailEntity> BookingDetailEntities = new ArrayList<>();
-        while (iterator.hasNext()) {
-            BookingDetailEntities.add(iterator.next());
-        }
+        int id= -1;
+        List<BookingDetailEntity> BookingDetailEntities = (List<BookingDetailEntity>) bookingDetailService.findByBooking(bookingEntity);
         for (BookingDetailEntity bookingDetail:BookingDetailEntities) {
             if(bookingDetail.getFlightsEntity().getId()!=id){
                 flightsEntityList.add(bookingDetail.getFlightsEntity());
             }
             id=bookingDetail.getFlightsEntity().getId();
-
         }
         return flightsEntityList;
+    }
+
+
+    public Optional<FlightsEntity> findByFlightRouteLowCost(Integer departureId,Integer destinationId){
+        return flightRepository.findByFlightRouteLowCost(departureId,destinationId);
+    }
+
+    public List<FlightsEntity> findByFlightRoute_Id(int id){
+        return (List<FlightsEntity>) flightRepository.findByFlightRoute_Id(id);
     }
 
     public Iterable<FlightsEntity> findFlightByNewFlight(FlightsEntity flightsEntity){

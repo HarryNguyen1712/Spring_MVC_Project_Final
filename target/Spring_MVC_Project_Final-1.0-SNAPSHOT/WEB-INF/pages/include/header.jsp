@@ -17,9 +17,9 @@
     <div class="page-header-inner ">
         <!-- logo start -->
         <div class="page-logo">
-            <a href="index.html">
-                <img alt="" src="${pageContext.request.contextPath}/resources-management/assets/img/logo.png">
-                <span class="logo-default" >Spice</span> </a>
+            <a href="${pageContext.request.contextPath}/index">
+                <img alt="" src="${pageContext.request.contextPath}/resources/images/logo.png" width="40" height="40">
+                <span class="logo-default" >Flight</span> </a>
         </div>
         <!-- logo end -->
         <ul class="nav navbar-nav navbar-left in">
@@ -41,7 +41,7 @@
                 <!-- end message dropdown -->
                 <!-- start manage user dropdown -->
                 <li class="dropdown dropdown-user">
-                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                    <a href="javascript:" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                         <img alt="" class="img-circle " src="${pageContext.request.contextPath}/resources-management/assets/img/dp.jpg" />
                         <span class="username username-hide-on-mobile"><security:authorize access="isAuthenticated()"><security:authentication property="principal.username" /> </security:authorize></span>
                         <i class="fa fa-angle-down"></i>

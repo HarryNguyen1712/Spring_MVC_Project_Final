@@ -3,7 +3,7 @@ package com.mycompany.spring_mvc_project_final.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "fee_carrierCharges")
+@Table(name = "feeCarrierCharges")
 public class FeeAndCarrierChargesEntity {
     @Id
     @Column(name = "id", nullable = false)

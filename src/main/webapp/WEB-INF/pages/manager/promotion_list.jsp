@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -86,7 +87,7 @@
                                                     <tr class="odd gradeX">
                                                         <td class="center">${item.name}</td>
                                                         <td class="center">${item.code}</td>
-                                                        <td class="center">${item.discount}</td>
+                                                        <td class="center"><fmt:formatNumber type = "number" minFractionDigits="0" value = "${item.discount}" /> %</td>
                                                         <td class="center">${item.startDate}</td>
                                                         <td class="center">${item.endDate}</td>
                                                         <td class="center">${item.createDate}</td>

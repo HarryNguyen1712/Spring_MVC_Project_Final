@@ -1,8 +1,5 @@
 package com.mycompany.spring_mvc_project_final.entities;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,10 +8,10 @@ import java.util.List;
 public class SeatsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id_seat", nullable = false)
     private int id;
 
-    @Column(name = "number", length = 3)
+    @Column(name = "number_seat", length = 3)
     private String number;
 
     @OneToMany(mappedBy = "seatsEntity", fetch = FetchType.LAZY)

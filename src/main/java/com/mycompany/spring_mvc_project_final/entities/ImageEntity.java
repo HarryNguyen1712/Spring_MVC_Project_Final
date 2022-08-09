@@ -18,9 +18,6 @@ public class ImageEntity {
     @JoinColumn(name = "airports_id")
     private AirportsEntity airport;
 
-    @ManyToOne
-    @JoinColumn(name = "aircrafts_id")
-    private AircraftsEntity aircraft;
 
     @ManyToOne
     @JoinColumn(name = "service_id")
@@ -51,14 +48,6 @@ public class ImageEntity {
 
     public void setAirport(AirportsEntity airport) {
         this.airport = airport;
-    }
-
-    public AircraftsEntity getAircraft() {
-        return aircraft;
-    }
-
-    public void setAircraft(AircraftsEntity aircraft) {
-        this.aircraft = aircraft;
     }
 
     public ServiceEntity getService() {

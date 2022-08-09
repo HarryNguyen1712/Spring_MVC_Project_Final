@@ -110,7 +110,7 @@
                                                     </div>
                                                     <div class="col-md-2 col-6 b-r"><strong>Gender</strong>
                                                         <br>
-                                                        <p class="text-muted">${user.genderEntity.genderEnum}</p>
+                                                        <p class="text-muted">${user.genderEnum}</p>
                                                     </div>
                                                     <div class="col-md-2 col-6 b-r"><strong>Mobile</strong>
                                                         <br>
@@ -168,16 +168,16 @@
                                                         <div class="form-group mb-4">
                                                             <div class="datepicker date input-group p-0 shadow-sm">
                                                                 <select style="height: 66px;"
-                                                                        name="genderEntity.id"
+                                                                        name="genderEnum"
                                                                         class="form-control" required>
                                                                     <c:forEach var="item" items="${genderList}">
                                                                         <c:choose>
-                                                                            <c:when test="${user.genderEntity.id == item.id}">
-                                                                                <option value="${item.id}"
-                                                                                        selected>${item.genderEnum}</option>
+                                                                            <c:when test="${user.genderEnum == item}">
+                                                                                <option value="${item}"
+                                                                                        selected>${item}</option>
                                                                             </c:when>
                                                                             <c:otherwise>
-                                                                                <option value="${item.id}">${item.genderEnum}</option>
+                                                                                <option value="${item}">${item}</option>
                                                                             </c:otherwise>
                                                                         </c:choose>
                                                                     </c:forEach>

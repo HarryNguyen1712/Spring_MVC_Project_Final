@@ -220,7 +220,6 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <c:forEach items="${listBooking.iterator()}" var="item" >
                                                     <tr class="odd gradeX">
                                                         <td class="center">${item.bookingDate}</td>
                                                         <td class="center">${item.bookingNumber}</td>
@@ -234,12 +233,11 @@
                                                             <a href="booking_details?id=${item.id}" class="btn btn-tbl-edit btn-xs">
                                                                 <i class="fa fa-pencil"></i>
                                                             </a>
-                                                            <a class="btn btn-tbl-delete btn-xs">
-                                                                <i class="fa fa-trash-o "></i>
+                                                            <a href="printInvoice?number=${item.bookingNumber}" class="btn btn-tbl-edit btn-xs">
+                                                                <i class="fa fa-info-circle "></i>
                                                             </a>
                                                         </td>
                                                     </tr>
-                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>

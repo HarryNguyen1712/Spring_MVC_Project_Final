@@ -95,12 +95,17 @@
         <sec:authorize access="isAuthenticated()">
             <sec:authorize access="hasRole('ROLE_USER')">
                 <a type="button" class="btn btn-outline-warning float-right" href="logout">Logout</a>
-                <a class="btn btn-outline-primary float-right mr-5" href="user/home">Manage Account</a>
+                <a class="btn btn-outline-primary float-right mr-5" href="user/booking_history">Manage Account</a>
             </sec:authorize>
             <sec:authorize access="hasRole('ROLE_ADMIN')">
                 <a type="button" class="btn btn-outline-warning float-right" href="logout">Logout</a>
                 <a class="btn btn-outline-primary float-right mr-5" href="admin/home">Manager</a>
             </sec:authorize>
+            <sec:authorize access="hasRole('ROLE_MANAGER')">
+                <a type="button" class="btn btn-outline-warning float-right" href="logout">Logout</a>
+                <a class="btn btn-outline-primary float-right mr-5" href="manager/home">Manager</a>
+            </sec:authorize>
+            <h5 class="float-right mr-5 text-center text-monospace text-black-50"><sec:authorize access="isAuthenticated()"><sec:authentication property="principal.username" /> </sec:authorize></h5>
         </sec:authorize>
         <sec:authorize access="!isAuthenticated()">
             <a type="button" class="btn btn-outline-warning float-right" href="login">Login</a>
@@ -141,12 +146,12 @@
                                 <div class="card-body payment-card-body">
                                     <span class="font-weight-normal card-text">Name</span>
                                     <div class="input"><i class="fa"></i>
-                                        <input name="name" required type="text" class="form-control" placeholder="FULL NAME">
+                                        <input name="name" required type="text" class="form-control"  placeholder="FULL NAME" value="${sessionScope.booking.creditCardEntity.name}">
                                     </div>
                                     <span class="font-weight-normal card-text">Card Number</span>
                                     <div class="input"><i class="fa fa-credit-card"></i>
-                                        <input name="cardNumber" type="number" class="form-control"
-                                               required
+                                        <input name="cardNumber" type="tel" inputmode="numeric" class="form-control" pattern="[0-9\s]{13,19}" maxlength="19"
+                                               required value="${sessionScope.booking.creditCardEntity.cardNumber}"
                                                placeholder="0000 0000 0000 0000">
                                     </div>
                                     <div class="row mt-3 mb-3">
@@ -158,6 +163,7 @@
                                                                                                      min="1" max="12"
                                                                                                      class="form-control"
                                                                                                      required
+                                                                                                     value="${sessionScope.booking.creditCardEntity.expMonth}"
                                                                                                      placeholder="MM">
                                             </div>
                                         </div>
@@ -168,7 +174,7 @@
                                                                       max="99"
                                                                       name="expYear"
                                                                       class="form-control"
-                                                                      required
+                                                                      required value="${sessionScope.booking.creditCardEntity.expYear}"
                                                                       placeholder="YY">
                                             </div>
                                         </div>
@@ -176,7 +182,7 @@
                                             <div class="input"><i class="fa fa-lock"></i> <input type="number"
                                                                                                  name="cvvCode"
                                                                                                  class="form-control"
-                                                                                                 required
+                                                                                                 required value="${sessionScope.booking.creditCardEntity.cvvCode}"
                                                                                                  placeholder="000">
                                             </div>
                                         </div>
@@ -232,7 +238,7 @@
                         ${sessionScope.booking.departFlight.flightRoute.destinationAirport.name}(${sessionScope.booking.departFlight.flightRoute.destinationAirport.code})
                     </p>
                     <div class="d-flex justify-content-between ">
-                        <span class="text-primary">Seat(${departSeat.seatsType.toString()})</span>
+                        <span class="text-primary">Seat(${departSeat.seatsType})</span>
                         <span>$<fmt:formatNumber minFractionDigits="0"
                                                  value="${departSeat.price}"/></span>
                     </div>
@@ -249,10 +255,10 @@
                         </div>
                         <p>${sessionScope.booking.returnFlight.flightRoute.departureAirport.name}(${sessionScope.booking.returnFlight.flightRoute.departureAirport.code})
                             <i class="fa fa-fighter-jet" aria-hidden="true"></i>
-                                ${sessionScope.booking.returnFlight.flightRoute.departureAirport.name}(${sessionScope.booking.returnFlight.flightRoute.destinationAirport.code})
+                                ${sessionScope.booking.returnFlight.flightRoute.destinationAirport.name}(${sessionScope.booking.returnFlight.flightRoute.destinationAirport.code})
                         </p>
                         <div class="d-flex justify-content-between ">
-                            <span class="text-primary">Seat(${returnSeat.seatsType.seatType})</span>
+                            <span class="text-primary">Seat(${returnSeat.seatsType})</span>
                             <span>$<fmt:formatNumber minFractionDigits="0"
                                                      value="${returnSeat.price}"/></span>
                         </div>
@@ -271,7 +277,7 @@
                     <div class="d-flex justify-content-between "><span
                             class="text-success">Total Service Price</span>
                         <span>$<fmt:formatNumber minFractionDigits="0"
-                                                 value="${sessionScope.booking.totalPriceService()}"/></span>
+                                                 value="${servicePrice}"/></span>
                     </div>
                 </div>
                 <hr class="mt-0 line">
@@ -281,7 +287,7 @@
                             <c:when test="${item.name.equals('tax')}">
                                 <div class="d-flex justify-content-between"><span>TAX</span>
                                     <span>$<fmt:formatNumber minFractionDigits="0"
-                                                             value="${sessionScope.booking.totalTicketPrice()*item.price/100}"/></span>
+                                                             value="${ticketPrice*item.price/100}"/></span>
                                 </div>
                             </c:when>
                             <c:otherwise>
@@ -307,27 +313,7 @@
 <div class="d-flex justify-content-center mb-2">
     <a class="btn btn-lg btn-outline-primary" href="service_booking">Back</a>
 </div>
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="social-icons">
-                    <li><a href="https://www.facebook.com/tooplate"><i style="margin-top: 30px;"
-                                                                       class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-rss"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-behance"></i></a></li>
-                </ul>
-            </div>
-            <div class="col-md-12">
-                <p>Copyright &copy; 2018 Flight Tour and Travel Company
-                    | Design: <a href="https://www.tooplate.com/view/2093-flight" target="_parent"><em>Flight</em></a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
+<jsp:include page="include/footer1.jsp"/>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/bootstrap4.5/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/bootstrap4.5/bootstrap.bundle.min.js"></script>

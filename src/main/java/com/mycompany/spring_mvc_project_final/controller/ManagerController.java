@@ -3,29 +3,26 @@ package com.mycompany.spring_mvc_project_final.controller;
 import com.mycompany.spring_mvc_project_final.entities.*;
 import com.mycompany.spring_mvc_project_final.enums.*;
 import com.mycompany.spring_mvc_project_final.model.NewPassword;
+import com.mycompany.spring_mvc_project_final.model.ServiceBookingList;
 import com.mycompany.spring_mvc_project_final.model.StartDateEndDate;
-import com.mycompany.spring_mvc_project_final.model.test;
 import com.mycompany.spring_mvc_project_final.service.*;
 import com.mycompany.spring_mvc_project_final.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-
-
 import javax.servlet.http.HttpServletRequest;
-
 import javax.validation.Valid;
-
 import java.time.LocalDate;
-import java.util.List;
 
 
 @Controller
@@ -170,7 +167,7 @@ public class ManagerController {
         model.addAttribute("flightList",flightService.findFlightlistByBookingDetails(bookingService.findById(id).get(),bookingDetailService));
         model.addAttribute("listBookingDetail",bookingDetailService.findByBooking(bookingService.findById(id).get()));
         model.addAttribute("service",serviceService.findAll());
-        model.addAttribute("test", new test());
+        model.addAttribute("test", new ServiceBookingList());
         model.addAttribute("idBooking", id);
         model.addAttribute("listBookingStatus", BookingStatusEnum.values());
         return "manager/booking_detail";
@@ -185,9 +182,9 @@ public class ManagerController {
     }
 
     @RequestMapping(value = "/editServiceBooking",method = RequestMethod.GET)
-    public String editService( @Valid @ModelAttribute(name = "test") test test, @RequestParam(name = "idBooking") String id){
-        BookingDetailEntity bookingDetailEntity= bookingDetailService.findById(test.getServiceBookingEntities().get(0).getBookingDetailEntity().getId()).get();
-        bookingDetailService.save(bookingDetailEntity,id,test);
+    public String editService( @Valid @ModelAttribute(name = "test") ServiceBookingList serviceBookingList, @RequestParam(name = "idBooking") String id) throws Exception {
+        BookingDetailEntity bookingDetailEntity= bookingDetailService.findById(serviceBookingList.getServiceBookingEntities().get(0).getBookingDetailEntity().getId()).get();
+        bookingDetailService.save(bookingDetailEntity,id,serviceBookingList);
         return "redirect:/manager/bookingDetailList?id="+id;
     }
 
@@ -208,7 +205,7 @@ public class ManagerController {
     }
 
     @RequestMapping(value="/addNewFlight",method = RequestMethod.GET)
-    public String addFlight(Model model, @RequestParam("promotionEntities") String[] promotionEntities, @Valid @ModelAttribute(name = "flightObject") FlightsEntity flight){
+    public String addFlight(Model model, @RequestParam("promotion") String[] promotionEntities, @Valid @ModelAttribute(name = "flightObject") FlightsEntity flight){
         boolean aBoolean= FlightUtilis.checkAircraft(flight,flightService,flightsRoutesService,aircraftService);
         if(!aBoolean){
             model.addAttribute("message","Aircraft has been used");
@@ -237,11 +234,6 @@ public class ManagerController {
         return "manager/flight";
     }
 
-    @RequestMapping(value="/deleteFlight",method = RequestMethod.GET)
-    public String deleteFlight(Model model, @RequestParam(name = "id") int id){
-        flightService.deleteById(id);
-        return "redirect:/manager/flight_list";
-    }
 
     @RequestMapping(value="/newAircraft",method = RequestMethod.GET)
     public String Aircraft(Model model){
@@ -251,21 +243,12 @@ public class ManagerController {
     }
 
     @RequestMapping(value="/addAircraft",method = RequestMethod.POST)
-    public String addAircraft(Model model,@Valid @ModelAttribute(name = "aircraft")AircraftsEntity aircraftsEntity,@RequestParam(name = "file") MultipartFile[] files, HttpServletRequest request){
-        if (files != null && files.length > 0) {
-            aircraftsEntity.setImageList(imageService.uploadImage(files, request,aircraftsEntity,null,null));
+    public String addAircraft(Model model,@Valid @ModelAttribute(name = "aircraft")AircraftsEntity aircraftsEntity){
             aircraftService.save(aircraftsEntity);
-        }
         return "redirect:/manager/aircraft_list";
 
     }
 
-    /*@RequestMapping(value="/editAircraft",method = RequestMethod.GET)
-    public String editAircraft(Model model,@RequestParam(name = "id") int id){
-        model.addAttribute("aircraft",aircraftService.findById(id).get());
-        model.addAttribute("ListAircraftStatus", AircrartsStatusEnum.values());
-        return "manager/aircraft";
-    }*/
 
     @RequestMapping(value="/editStatusAircraft",method = RequestMethod.GET)
     public String editAircraftStatus(@RequestParam(name = "id") int id,@RequestParam(name = "status") String status){
@@ -275,11 +258,6 @@ public class ManagerController {
         return "redirect:/manager/aircraft_list";
     }
 
-    /*@RequestMapping(value = "/deleteAircraft",method = RequestMethod.GET)
-    public String deleteAircraft(Model model,@RequestParam(name = "id") int id){
-        aircraftService.deleteById(id);
-        return "redirect:/manager/aircraft_list";
-    }*/
 
     @RequestMapping(value="/editSeat",method = RequestMethod.GET)
     public String editAircraftSeat(Model model, @RequestParam(name = "number") String number,@RequestParam(name="id")int id){
@@ -305,7 +283,7 @@ public class ManagerController {
     @RequestMapping(value="/addService",method = RequestMethod.POST)
     public String addService(Model model, @Valid @ModelAttribute(name = "service")ServiceEntity serviceEntity,@RequestParam(name = "file") MultipartFile[] files, HttpServletRequest request){
         if (files != null && files.length > 0) {
-            serviceEntity.setImageEntities(imageService.uploadImage(files, request,null,null,serviceEntity));
+            serviceEntity.setImageEntities(imageService.uploadImage(files, request,null,serviceEntity));
             serviceService.save(serviceEntity);
         }
         return "redirect:/manager/service_list";
@@ -344,13 +322,6 @@ public class ManagerController {
         return "manager/flight_route";
     }
 
-    @RequestMapping(value = "/deleteFlightRoute",method = RequestMethod.GET)
-    public String deleteFlightRoute(Model model,@RequestParam(name = "id")int id){
-        flightsRoutesService.deleteById(id);
-        model.addAttribute("flightRouteList",flightsRoutesService.findAll());
-        return "manager/flight_route_list";
-    }
-
     @RequestMapping(value="/newPromotion",method = RequestMethod.GET)
     public String newPromotion(Model model){
         LocalDate localDate = LocalDate.now();
@@ -362,6 +333,7 @@ public class ManagerController {
 
     @RequestMapping(value="/addPromotion",method = RequestMethod.GET)
     public String addPromotion(Model model, @Valid @ModelAttribute(name="promotion") PromotionEntity promotionEntity, BindingResult rs){
+        promotionService.save(promotionEntity);
         model.addAttribute("listPromotion",promotionService.findAll());
         return "manager/promotion_list";
     }
@@ -383,7 +355,7 @@ public class ManagerController {
                              HttpServletRequest request){
 
         if (files != null && files.length > 0) {
-            airportsEntity.setImageList(imageService.uploadImage(files, request,null,airportsEntity,null));
+            airportsEntity.setImageList(imageService.uploadImage(files, request,airportsEntity,null));
             airportService.save(airportsEntity);
         }
         model.addAttribute("airport", new AirportsEntity());
@@ -419,21 +391,16 @@ public class ManagerController {
     }
 
     @RequestMapping( value = "/changePassword",method = RequestMethod.POST)
-    public String changePassword(Model model,@Valid @ModelAttribute(name = "newPassword") NewPassword newPassword) {
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        UserEntity userEntity= userDetailsService.findByEmail(newPassword.getEmail());
-
-        if(bCryptPasswordEncoder.matches(newPassword.getOldPassword(),userEntity.getPassword())){
-            userEntity.setPassword(bCryptPasswordEncoder.encode(newPassword.getNewPassword()));
-
-        }
+    public String changePassword(@Valid @ModelAttribute(name = "newPassword") NewPassword newPassword) {
+        UserEntity userEntity= UserUtilis.changePassword(userDetailsService.findByEmail(newPassword.getEmail()),newPassword);
         userDetailsService.save(userEntity);
         return "redirect:/manager/profile";
     }
 
     @RequestMapping( value = "/editProfile",method = RequestMethod.GET)
-    public String editProfile(Model model,@ModelAttribute(name="user")UserEntity user) {
-        UserUtilis.editProfile(user, userDetailsService);
+    public String editProfile(@ModelAttribute(name="user")UserEntity user) {
+        user=UserUtilis.editProfile(user, userDetailsService);
+        userDetailsService.save(user);
         return "redirect:/manager/profile";
 
     }

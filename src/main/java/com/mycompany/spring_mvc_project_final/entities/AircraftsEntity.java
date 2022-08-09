@@ -12,14 +12,14 @@ import java.util.List;
 @Table(name = "aircrafts")
 public class AircraftsEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id_aircraft", nullable = false)
     private int id;
 
-    @Column(name = "name")
+    @Column(name = "name_aircraft")
     private String name;
 
-    @Column(name = "number", length = 20)
+    @Column(name = "number_aircraft", length = 20)
     private String number;
 
     @Column(name = "row_seat")
@@ -27,9 +27,6 @@ public class AircraftsEntity {
 
     @Column(name = "col_seat")
     private Integer col;
-
-    @OneToMany(mappedBy = "aircraft",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private List<ImageEntity> imageList;
 
 
     @Enumerated(EnumType.STRING)
@@ -60,14 +57,6 @@ public class AircraftsEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<ImageEntity> getImageList() {
-        return imageList;
-    }
-
-    public void setImageList(List<ImageEntity> imageList) {
-        this.imageList = imageList;
     }
 
     public AircrartsStatusEnum getAircraftStatus() {

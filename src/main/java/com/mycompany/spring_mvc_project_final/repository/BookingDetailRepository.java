@@ -7,5 +7,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BookingDetailRepository extends CrudRepository<BookingDetailEntity,Integer> {
+    Iterable<BookingDetailEntity> findByBookingEntity_Id(int id);
+
+    Iterable<BookingDetailEntity> findByBookingEntity_BookingNumber(String bookingEntity_bookingNumber);
+
     Iterable<BookingDetailEntity> findByBookingEntity(BookingEntity bookingEntity);
 }

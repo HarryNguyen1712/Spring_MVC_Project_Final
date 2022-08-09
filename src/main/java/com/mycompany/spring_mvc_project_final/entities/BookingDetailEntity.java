@@ -1,14 +1,12 @@
 package com.mycompany.spring_mvc_project_final.entities;
 
 import com.mycompany.spring_mvc_project_final.enums.BookingStatusEnum;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="booking_detail")
+@Table(name="bookingDetail")
 public class BookingDetailEntity {
 
     @Id

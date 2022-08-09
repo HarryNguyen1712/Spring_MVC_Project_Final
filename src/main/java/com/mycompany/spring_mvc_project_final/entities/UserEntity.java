@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "user_table", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class UserEntity extends Personal implements Serializable {
 
     @Id

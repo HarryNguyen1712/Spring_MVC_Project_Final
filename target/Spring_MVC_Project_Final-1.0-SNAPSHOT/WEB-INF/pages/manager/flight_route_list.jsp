@@ -79,7 +79,7 @@
                                         </ul>
                                     </div>
                                     <div class="card-body ">
-                                        <a href="newFlightRoute" type="button" class="btn btn-outline-primary">Add Flight Route</a>
+
                                         <div class="table-scrollable">
                                             <table class="table table-hover table-checkable order-column full-width" id="example4">
                                                 <thead>
@@ -103,9 +103,6 @@
                                                         <td class="center">
                                                             <a href="editFlightRoute?id=${item.id}" class="btn btn-tbl-edit btn-xs">
                                                                 <i class="fa fa-pencil"></i>
-                                                            </a>
-                                                            <a href="deleteFlightRoute?id=${item.id}" class="btn btn-tbl-delete btn-xs">
-                                                                <i class="fa fa-trash-o "></i>
                                                             </a>
                                                         </td>
                                                     </tr>

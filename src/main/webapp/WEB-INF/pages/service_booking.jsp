@@ -65,29 +65,7 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-light bg-light" style="min-height: 60px; margin-bottom: 0; border: 0;
-                                                background: linear-gradient(90deg, rgba(5,41,48,1) 19%, rgba(107,135,140,1) 42%, rgba(204,235,241,1) 73%);">
-    <a class="navbar-brand" href="index">
-        <img src="${pageContext.request.contextPath}/resources/assets/img/logo.png"
-             alt="Flight Template" class="d-inline-block align-text-top"
-             style="max-width: 70%; padding-left: 2rem;">
-    </a>
-    <div class="clearfix" style="margin-right: 30px">
-        <sec:authorize access="isAuthenticated()">
-            <sec:authorize access="hasRole('ROLE_USER')">
-                <a type="button" class="btn btn-outline-warning btn-lg float-right" href="logout">Logout</a>
-                <a class="btn btn-outline-primary btn-lg float-right mr-5" href="user/home">Manage Account</a>
-            </sec:authorize>
-            <sec:authorize access="hasRole('ROLE_ADMIN')">
-                <a type="button" class="btn btn-outline-warning btn-lg float-right" href="logout">Logout</a>
-                <a class="btn btn-outline-primary btn-lg float-right mr-5" href="admin/home">Manager</a>
-            </sec:authorize>
-        </sec:authorize>
-        <sec:authorize access="!isAuthenticated()">
-            <a type="button" class="btn btn-outline-warning btn-lg float-right" href="login">Login</a>
-        </sec:authorize>
-    </div>
-</nav>
+<jsp:include page="include/header1.jsp"/>
 
 
 <div id="weather">
@@ -129,88 +107,6 @@
                                             </div>
                                             <form:form action="doAddServiceBooking" modelAttribute="booking"
                                                        method="get" cssClass="col-md-12">
-                                                <%--<c:if test="${!sessionScope.booking.flightAndSeat.ifRoundTrip()}">
-                                                    <h1>Depart Service Booking</h1>
-                                                    <c:forEach var="item2"
-                                                               items="${sessionScope.booking.booking.bookingDetailEntity}">
-                                                        <h2>${item2.passengersEntity.fullName}</h2>
-                                                        <c:forEach var="item" items="${serviceList}" varStatus="status">
-                                                            <div style="margin-bottom: 2em" class="col-md-12">
-                                                                <div class="weather-item"
-                                                                     style="padding: 2%;background-color: rgb(255 232 232 / 61%) !important;">
-                                                                    <div class="container">
-                                                                        <div class="row row-cols-3">
-                                                                            <div class="col col-md-3">
-                                                                                <div id="${fn:replace(item.name, ' ', '-')}"
-                                                                                     class="carousel slide" data-ride="carousel"
-                                                                                     style="width: 200px;">
-                                                                                    <!-- The slideshow -->
-                                                                                    <div class="carousel-inner">
-                                                                                        <c:forEach items="${item.imageEntities}" var="image"
-                                                                                                   varStatus="stat">
-                                                                                            <c:if test="${stat.first}">
-                                                                                                <div class="carousel-item active">
-                                                                                                    <img intrinsicsize="200x200"
-                                                                                                         src="${pageContext.request.contextPath}/resources/images/${image.name}"
-                                                                                                         alt="" width="200" height="200">
-                                                                                                </div>
-                                                                                            </c:if>
-                                                                                            <c:if test="${not stat.first}">
-                                                                                                <div class="carousel-item">
-                                                                                                    <img intrinsicsize="200x200"
-                                                                                                         src="${pageContext.request.contextPath}/resources/images/${image.name}"
-                                                                                                         alt="" width="200" height="200">
-                                                                                                </div>
-                                                                                            </c:if>
-                                                                                        </c:forEach>
-                                                                                    </div>
-                                                                                    <!-- Left and right controls -->
-                                                                                    <a class="carousel-control-prev"
-                                                                                       href="#${fn:replace(item.name, ' ', '-')}" data-slide="prev">
-                                                                                        <span class="carousel-control-prev-icon"></span>
-                                                                                    </a> <a class="carousel-control-next"
-                                                                                            href="#${fn:replace(item.name, ' ', '-')}" data-slide="next">
-                                                                                    <span class="carousel-control-next-icon"></span>
-                                                                                </a>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col col-md-7">
-                                                                                <h3>${item.name}</h3>
-                                                                                <h3 style="color: #8d0600;font-style: italic">
-                                                                                    $${item.price}</h3>
-                                                                                <i class="fa fa-info">
-                                                                                    Description
-                                                                                </i>
-                                                                                    ${item.description}
-                                                                            </div>
-                                                                            <div class="col col-md-2">
-                                                                                <p class="mb-4 pb-2">Quantity</p>
-                                                                                <c:set var="value" value="0"/>
-                                                                                <c:forEach var="item1"
-                                                                                           items="${item2.serviceBookingEntities}">
-                                                                                    <c:if test="${item1.serviceEntity.id == item.id}">
-                                                                                        <c:set var="value"
-                                                                                               value="${item1.quantity}"/>
-                                                                                    </c:if>
-                                                                                </c:forEach>
-                                                                                <input type="number"
-                                                                                       class="form-control"
-                                                                                       style="padding: 2px 12px ;"
-                                                                                       data-id="${item.id}"
-                                                                                       data-foo="${item2.passengersEntity.idenCode}"
-                                                                                       data-flightid="${sessionScope.booking.departFlight.id}"
-                                                                                       name="serviceDepart[${status.index}].quantity"
-                                                                                       id="quantity" value="${value}"
-                                                                                       min="0"/>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </c:forEach>
-                                                    </c:forEach>
-                                                </c:if>--%>
-                                                <%--<c:if test="${sessionScope.booking.flightAndSeat.ifRoundTrip()}">--%>
                                                 <c:forEach var="item2" varStatus="status"
                                                            items="${sessionScope.booking.booking.bookingDetailEntity}">
                                                     <c:choose>
@@ -224,7 +120,6 @@
                                                     <h2>${item2.passengersEntity.fullName}</h2>
                                                     <c:forEach var="item" items="${serviceList}"
                                                                varStatus="status1">
-
                                                         <div style="margin-bottom: 2em" class="col-md-12">
                                                             <div class="weather-item"
                                                                  style="padding: 2%;background-color: rgb(255 232 232 / 61%) !important;">
@@ -277,11 +172,8 @@
                                                                             <h3 style="color: #8d0600;font-style: italic">
                                                                                 $${item.price}</h3>
                                                                             <i class="fa fa-info">
-                                                                                Description
+                                                                                    ${item.description}
                                                                             </i>
-                                                                            <div>
-                                                                                <dialog>${item.description}</dialog>
-                                                                            </div>
                                                                         </div>
                                                                         <div style="width: 33.333333%"
                                                                              class="col col-md-3">
@@ -345,28 +237,7 @@
         </div>
     </div>
 </div>
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="social-icons">
-                    <li><a href="https://www.facebook.com/tooplate"><i style="margin-top: 30px;"
-                                                                       class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-rss"></i></a></li>
-                    <li><a href="#"><i style="margin-top: 30px;" class="fa fa-behance"></i></a></li>
-                </ul>
-            </div>
-            <div class="col-md-12">
-                <p>Copyright &copy; 2018 Flight Tour and Travel Company
-
-                    | Design: <a href="https://www.tooplate.com/view/2093-flight" target="_parent"><em>Flight</em></a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
+<jsp:include page="include/footer1.jsp"/>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
@@ -388,7 +259,7 @@
 
     $(document).ready(function () {
 
-        $('#total').text(${sessionScope.booking.totalPriceService()})
+        $('#total').text(${total})
 
         $('input[type="number"]').change(function () {
             let btn = $(this);

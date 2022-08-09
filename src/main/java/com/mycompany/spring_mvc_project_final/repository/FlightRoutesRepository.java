@@ -12,4 +12,7 @@ public interface FlightRoutesRepository extends CrudRepository<FlightRoutesEntit
     @Query(value = "select f from FlightRoutesEntity f where f.departureAirport.name =?1 and f.destinationAirport.name =?2")
      Optional<FlightRoutesEntity> findByCriteria(String departure, String destination);
      Iterable<FlightRoutesEntity> findAll();
+
+     Iterable<FlightRoutesEntity> findByDepartureAirport_Id(int departureAirport_id);
+     Iterable<FlightRoutesEntity> findByDestinationAirport_Id(int destinationAirport_id);
 }

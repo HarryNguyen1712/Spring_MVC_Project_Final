@@ -19,7 +19,6 @@
     <meta name="description" content="Responsive Admin Template"/>
     <meta name="author" content="SmartUniversity"/>
     <title>Management</title>
-    <link href="${pageContext.request.contextPath}/resources-management/plane.css" rel="stylesheet" type="text/css"/>
     <link href="${pageContext.request.contextPath}/resources-management/datepicker/bootstrap.4.3.1.min.css"
           rel="stylesheet" type="text/css"/>
     <link href="${pageContext.request.contextPath}/resources-management/datepicker/font-awesome.4.7.0.min.css"
@@ -351,7 +350,6 @@
         }
 
 
-
     </style>
 
 </head>
@@ -379,191 +377,203 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card-box">
-                            <div class="card-head">
-
-                            </div>
                             <c:forEach items="${flightList}" var="flight">
                                 <div class="col-lg-12 p-t-20" style="text-align: center">
-                                    <h2 class="display-2">Flight: ${flight.flightRoute.departureAirport.name} to ${flight.flightRoute.destinationAirport.name}</h2>
+                                    <h2 class="display-2">Flight: ${flight.flightRoute.departureAirport.name}
+                                        to ${flight.flightRoute.destinationAirport.name}</h2>
                                 </div>
 
-                            <c:forEach items="${listBookingDetail}" var="item">
-                                <c:if test="${item.flightsEntity.id == flight.id }">
-                                <div class="card-body row border p-3" style="margin: 1em 2em"
-                                     method="get">
-                                    <div class="col-lg-12 p-t-20">
-                                        <c:choose>
-                                            <c:when test="${item.bookingStatusEnum=='COMPLETED'}">
-                                                <button type="button" class="btn btn-primary">${item.bookingStatusEnum}</button>
-                                            </c:when>
-                                            <c:when test="${item.bookingStatusEnum=='BOOKED'}">
-                                                <button type="button" class="btn btn-success">${item.bookingStatusEnum}</button>
-                                            </c:when>
-                                            <c:when test="${item.bookingStatusEnum=='CHECK_IN'}">
-                                                <button type="button" class="btn btn-info">${item.bookingStatusEnum}</button>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <button type="button" class="btn btn-danger">${item.bookingStatusEnum}</button>
-                                            </c:otherwise>
-                                        </c:choose>
+                                <c:forEach items="${listBookingDetail}" var="item">
+                                    <c:if test="${item.flightsEntity.id == flight.id }">
+                                        <div class="card-body row border p-3" style="margin: 1em 2em"
+                                             method="get">
+                                            <div class="col-lg-12 p-t-20">
+                                                <c:choose>
+                                                    <c:when test="${item.bookingStatusEnum=='COMPLETED'}">
+                                                        <button type="button"
+                                                                class="btn btn-primary">${item.bookingStatusEnum}</button>
+                                                    </c:when>
+                                                    <c:when test="${item.bookingStatusEnum=='BOOKED'}">
+                                                        <button type="button"
+                                                                class="btn btn-success">${item.bookingStatusEnum}</button>
+                                                    </c:when>
+                                                    <c:when test="${item.bookingStatusEnum=='CHECK_IN'}">
+                                                        <button type="button"
+                                                                class="btn btn-info">${item.bookingStatusEnum}</button>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <button type="button"
+                                                                class="btn btn-danger">${item.bookingStatusEnum}</button>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                <c:if test="${item.bookingStatusEnum !='CANCEL'}">
+                                                    <div class="dropdown show" style="float: right">
+                                                        <button class="btn btn-secondary <%--dropdown-toggle--%>" type="button"
+                                                                id="dropdownMenuButton" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                            Change Status
+                                                        </button><z></z>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink"
+                                                             style="width: 6em">
+                                                            <c:forEach var="status" items="${listBookingStatus}">
+                                                                <c:if test="${status !='CANCEL'}">
+                                                                    <c:choose>
+                                                                        <c:when test="${item.bookingStatusEnum==status}">
+                                                                            <a class="dropdown-item"
+                                                                               href="editStatusBooking?id=${item.id}&status=${status}&idBooking=${idBooking}"
+                                                                               id="${status}">${status}</a>
+                                                                        </c:when>
+                                                                        <c:otherwise>
+                                                                            <a class="dropdown-item"
+                                                                               href="editStatusBooking?id=${item.id}&status=${status}&idBooking=${idBooking}"
+                                                                               id="${status}">${status}</a>
+                                                                        </c:otherwise>
+                                                                    </c:choose>
+                                                                </c:if>
+                                                            </c:forEach>
+                                                        </div>
+                                                    </div>
+                                                </c:if>
 
-                                        <div class="dropdown show" style="float: right">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Change Status
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width: 6em">
-                                                <c:forEach var="status" items="${listBookingStatus}">
-                                                    <c:choose>
-                                                        <c:when test="${item.bookingStatusEnum==status}">
-                                                            <a class="dropdown-item" href="editStatusBooking?id=${item.id}&status=${status}&idBooking=${idBooking}" id="${status}" >${status}</a>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <a class="dropdown-item" href="editStatusBooking?id=${item.id}&status=${status}&idBooking=${idBooking}" id="${status}">${status}</a>
-                                                        </c:otherwise>
-                                                    </c:choose>
+                                            </div>
+                                            <div class="col-lg-3 p-t-20">
+                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                    <input class="mdl-textfield__input" type="text" name="number"
+                                                           value="${item.flightsEntity.departure}" readonly>
+                                                    <label class="mdl-textfield__label">Departure Date</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 p-t-20">
+                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                    <input class="mdl-textfield__input" type="text" name="number"
+                                                           value="${item.flightsEntity.departureTime}" readonly>
+                                                    <label class="mdl-textfield__label">Departure Time</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 p-t-20">
+                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                    <input class="mdl-textfield__input" type="text" name="number"
+                                                           value="${item.flightsEntity.arrival}" readonly>
+                                                    <label class="mdl-textfield__label">arrival Date</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 p-t-20">
+                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                    <input class="mdl-textfield__input" type="text" name="number"
+                                                           value="${item.flightsEntity.arrivalTime}" readonly>
+                                                    <label class="mdl-textfield__label">Departure Time</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 p-t-20">
+                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                    <input class="mdl-textfield__input" type="text" name="number"
+                                                           value="${item.passengersEntity.genderEnum}" readonly>
+                                                    <label class="mdl-textfield__label">Gender</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 p-t-20">
+                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                    <input class="mdl-textfield__input" type="text" name="number"
+                                                           value="${item.passengersEntity.fullName}" readonly>
+                                                    <label class="mdl-textfield__label">Full Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 p-t-20">
+                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                    <input class="mdl-textfield__input" type="text" name="number"
+                                                           value="${item.passengersEntity.idenCode}" readonly>
+                                                    <label class="mdl-textfield__label">Identify Code</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 p-t-20">
+                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                    <input class="mdl-textfield__input" type="text" name="number"
+                                                           value="${item.seatsEntity.number}" readonly>
+                                                    <label class="mdl-textfield__label">Seat Number</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 p-t-20">
+                                                <c:forEach items="${item.serviceBookingEntities}" var="services">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width input-group input-group-sm mb-3 col-lg-3 p-t-20"
+                                                         style="float: left">
+                                                        <input type="number" id="${item.id}${services.id}"
+                                                               style="width: 5em;float: left;margin-right: 5px"
+                                                               min="0" class="form-control"
+                                                               value="${services.quantity}" readonly/>
+                                                        <label for="${item.id}${services.id}">${services.serviceEntity.name}</label><br>
+                                                    </div>
                                                 </c:forEach>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 p-t-20">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                            <input class="mdl-textfield__input" type="text" name="number"
-                                                   value="${item.flightsEntity.departure}" readonly>
-                                            <label class="mdl-textfield__label">Departure Date</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 p-t-20">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                            <input class="mdl-textfield__input" type="text" name="number"
-                                                   value="${item.flightsEntity.departureTime}" readonly>
-                                            <label class="mdl-textfield__label">Departure Time</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 p-t-20">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                            <input class="mdl-textfield__input" type="text" name="number"
-                                                   value="${item.flightsEntity.arrival}" readonly>
-                                            <label class="mdl-textfield__label">arrival Date</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 p-t-20">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                            <input class="mdl-textfield__input" type="text" name="number"
-                                                   value="${item.flightsEntity.arrivalTime}" readonly>
-                                            <label class="mdl-textfield__label">Departure Time</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 p-t-20">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                            <input class="mdl-textfield__input" type="text" name="number"
-                                                   value="${item.flightsEntity.flightRoute.departureAirport.name}"
-                                                   readonly>
-                                            <label class="mdl-textfield__label">Departure Place</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 p-t-20">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                            <input class="mdl-textfield__input" type="text" name="number"
-                                                   value="${item.flightsEntity.flightRoute.destinationAirport.name}"
-                                                   readonly>
-                                            <label class="mdl-textfield__label">Destination Place</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 p-t-20">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                            <input class="mdl-textfield__input" type="text" name="number"
-                                                   value="${item.passengersEntity.genderEnum}" readonly>
-                                            <label class="mdl-textfield__label">Gender</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 p-t-20">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                            <input class="mdl-textfield__input" type="text" name="number"
-                                                   value="${item.passengersEntity.fullName}" readonly>
-                                            <label class="mdl-textfield__label">Full Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 p-t-20">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                            <input class="mdl-textfield__input" type="text" name="number"
-                                                   value="${item.passengersEntity.idenCode}" readonly>
-                                            <label class="mdl-textfield__label">Identify Code</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 p-t-20">
-                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                            <input class="mdl-textfield__input" type="text" name="number"
-                                                   value="${item.seatsEntity.number}" readonly>
-                                            <label class="mdl-textfield__label">Seat Number</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 p-t-20">
-                                        <c:forEach items="${item.serviceBookingEntities}" var="services">
-                                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width input-group input-group-sm mb-3 col-lg-3 p-t-20" style="float: left">
-                                                <input type="number"  id="${item.id}${services.id}" style="width: 5em;float: left;margin-right: 5px"
-                                                       min="0" class="form-control"
-                                                       value="${services.quantity}" readonly/>
-                                                <label for="${item.id}${services.id}" >${services.serviceEntity.name}</label><br>
-                                            </div>
-                                        </c:forEach>
-                                    </div>
-                                    <div class="col-lg-3 p-t-20">
-                                        <div class="site-content cf">
-                                            <button name="test" class="btn btn-info boxed-action"
-                                                    data-id="confirm-delete${item.id}" id="delete-account${item.id}">
-                                                Services
-                                            </button>
-                                            <dialog id="confirm-delete${item.id}" class="site-dialog cf">
-                                                <form:form modelAttribute="test" method="get" action="editServiceBooking" id="${item.id}">
-                                                    <input type="text" name="idBooking"
-                                                           value="${idBooking}" readonly hidden>
-                                                <header class="dialog-header">
-                                                    <h1 style="">Services</h1>
-                                                        <c:forEach items="${service}" var="item1" varStatus="status1">
-                                                        <c:forEach items="${item.serviceBookingEntities}" var="item2">
-                                                            <c:set value="0" var="quantity"> </c:set>
-                                                            <c:if test="${item2.serviceEntity.id==item1.id}">
-                                                                <c:set value="${item2.quantity}" var="quantity"> </c:set>
-                                                            </c:if>
-                                                        </c:forEach>
-                                                            <input type="text"
-                                                                   name="serviceBookingEntities[${status1.index}].bookingDetailEntity.id"
-                                                                   value="${item.id}" hidden readonly>
-                                                            <c:choose>
-                                                                <c:when test="${item1.name=='Insurance'}">
-                                                                    <input type="number"  id="${item1.id}" style="width: 5em"
-                                                                           name="serviceBookingEntities[${status1.index}].quantity" max="1" min="0"
-                                                                           value="${quantity}"/>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <input type="number"  id="${item1.id}" style="width: 5em"
-                                                                           name="serviceBookingEntities[${status1.index}].quantity"  min="0"
-                                                                           value="${quantity}"/>
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                            <input type="text" id="${item1.id}"
-                                                                               name="serviceBookingEntities[${status1.index}].serviceEntity.id"
-                                                                               value="${item1.id}" hidden readonly/>
-                                                            <label for="${item1.id}" style="color:white;">${item1.name}</label><br>
-
-                                                        </c:forEach>
-                                                    <div style="position: absolute; right: 0; top: 0; text-align: right">
-                                                        <button class="btn btn-cancel"
-                                                                data-id="confirm-delete${item.id}" id="cancel${item.id}" type="submit"
-                                                                name="cancel">x
+                                            <div class="col-lg-3 p-t-20">
+                                                <div class="site-content cf">
+                                                    <c:if test="${item.bookingStatusEnum !='CANCEL'}">
+                                                        <button name="test" class="btn btn-info boxed-action"
+                                                                data-id="confirm-delete${item.id}"
+                                                                id="delete-account${item.id}">
+                                                            Services
                                                         </button>
-                                                    </div>
-                                                </header>
-                                                <div class="btn-group cf" style="width: 100%">
-                                                    <input class="btn btn-danger"  type="submit">
+                                                    </c:if>
+                                                    <dialog id="confirm-delete${item.id}" class="site-dialog cf">
+                                                        <form:form modelAttribute="test" method="get"
+                                                                   action="editServiceBooking" id="${item.id}">
+                                                            <input type="text" name="idBooking"
+                                                                   value="${idBooking}" readonly hidden>
+                                                            <header class="dialog-header">
+                                                                <h1 style="">Services</h1>
+                                                                <c:forEach items="${service}" var="item1"
+                                                                           varStatus="status1">
+                                                                    <c:forEach items="${item.serviceBookingEntities}"
+                                                                               var="item2">
+                                                                        <%--   <c:set value="0" var="quantity"> </c:set>--%>
+                                                                        <c:if test="${item2.serviceEntity.id==item1.id}">
+                                                                            <c:set value="${item2.quantity}"
+                                                                                   var="quantity"> </c:set>
+                                                                        </c:if>
+                                                                    </c:forEach>
+                                                                    <input type="text"
+                                                                           name="serviceBookingEntities[${status1.index}].bookingDetailEntity.id"
+                                                                           value="${item.id}" hidden readonly>
+                                                                    <c:choose>
+                                                                        <c:when test="${item1.name=='Insurance'}">
+                                                                            <input type="number" id="${item1.id}"
+                                                                                   style="width: 5em"
+                                                                                   name="serviceBookingEntities[${status1.index}].quantity"
+                                                                                   max="1" min="0"
+                                                                                   value="${quantity}"/>
+                                                                        </c:when>
+                                                                        <c:otherwise>
+                                                                            <input type="number" id="${item1.id}"
+                                                                                   style="width: 5em"
+                                                                                   name="serviceBookingEntities[${status1.index}].quantity"
+                                                                                   min="0"
+                                                                                   value="${quantity}"/>
+                                                                        </c:otherwise>
+                                                                    </c:choose>
+                                                                    <input type="text" id="${item1.id}"
+                                                                           name="serviceBookingEntities[${status1.index}].serviceEntity.id"
+                                                                           value="${item1.id}" hidden readonly/>
+                                                                    <label for="${item1.id}"
+                                                                           style="color:white;">${item1.name}</label><br>
+                                                                    <c:set value="0" var="quantity"> </c:set>
+                                                                </c:forEach>
+                                                                <div style="position: absolute; right: 0; top: 0; text-align: right">
+                                                                    <p class="btn btn-cancel"
+                                                                       data-id="confirm-delete${item.id}"
+                                                                       id="cancel${item.id}"
+                                                                       name="cancel">x
+                                                                    </p>
+                                                                </div>
+                                                            </header>
+                                                            <div class="btn-group cf" style="width: 100%">
+                                                                <input class="btn btn-danger" type="submit">
+                                                            </div>
+                                                        </form:form>
+                                                    </dialog>
                                                 </div>
-                                                </form:form>
-                                            </dialog>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                </c:if>
-                            </c:forEach>
+                                    </c:if>
+                                </c:forEach>
                             </c:forEach>
                         </div>
                     </div>
@@ -601,13 +611,13 @@
 <script src="${pageContext.request.contextPath}/resources-management/assets/plugins/material/material.min.js"></script>
 <!-- animation -->
 <script src="${pageContext.request.contextPath}/resources-management/assets/js/pages/ui/animations.js"></script>
-<script src="${pageContext.request.contextPath}/resources-management/assets/plugins/material-datetimepicker/moment-with-locales.min.js"></script>
+<%--<script src="${pageContext.request.contextPath}/resources-management/assets/plugins/material-datetimepicker/moment-with-locales.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources-management/assets/plugins/material-datetimepicker/bootstrap-material-datetimepicker.js"></script>
-<script src="${pageContext.request.contextPath}/resources-management/assets/plugins/material-datetimepicker/datetimepicker.js"></script>
+<script src="${pageContext.request.contextPath}/resources-management/assets/plugins/material-datetimepicker/datetimepicker.js"></script>--%>
 
-
+<%--
 <script src="${pageContext.request.contextPath}/resources-management/datepicker/bootstrap.bundle.4.3.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources-management/datepicker/bootstrap-datepicker.1.9.0.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources-management/datepicker/bootstrap-datepicker.1.9.0.min.js"></script>--%>
 <script type="text/javascript">
     $(document).ready(function () {
         $('button[name="test"]').click(function () {
@@ -616,7 +626,6 @@
             let element = document.getElementById(id);
             element.showModal();
             document.getElementById(id).style.visibility = 'visible';
-
             /*if (element.style.visibility === 'hidden') {
                 document.getElementById(id).style.visibility = 'visible';
             } else {
@@ -624,14 +633,12 @@
             }*/
         });
 
-        $('button[name="cancel"]').click(function () {
+        $('p[name="cancel"]').click(function () {
             let btn = $(this);
             let id = btn.data('id');
             let element = document.getElementById(id);
             element.close();
             document.getElementById(id).style.visibility = 'hidden'
-
-
             /*document.getElementById(id).style.visibility = 'hidden';*/
         });
     });

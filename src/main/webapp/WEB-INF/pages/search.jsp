@@ -85,29 +85,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-light bg-light" style="min-height: 60px; margin-bottom: 0; border: 0;
-                                                background: linear-gradient(90deg, rgba(5,41,48,1) 19%, rgba(107,135,140,1) 42%, rgba(204,235,241,1) 73%);">
-    <a class="navbar-brand" href="index">
-        <img src="${pageContext.request.contextPath}/resources/assets/img/logo.png"
-             alt="Flight Template" class="d-inline-block align-text-top"
-             style="max-width: 70%; padding-left: 2rem;">
-    </a>
-    <div class="clearfix" style="margin-right: 30px">
-        <sec:authorize access="isAuthenticated()">
-            <sec:authorize access="hasRole('ROLE_USER')">
-                <a type="button" class="btn btn-outline-warning btn-lg float-right" href="logout">Logout</a>
-                <a class="btn btn-outline-primary btn-lg float-right mr-5" href="user/home">Manage Account</a>
-            </sec:authorize>
-            <sec:authorize access="hasRole('ROLE_ADMIN')">
-                <a type="button" class="btn btn-outline-warning btn-lg float-right" href="logout">Logout</a>
-                <a class="btn btn-outline-primary btn-lg float-right mr-5" href="admin/home">Manager</a>
-            </sec:authorize>
-        </sec:authorize>
-        <sec:authorize access="!isAuthenticated()">
-            <a type="button" class="btn btn-outline-warning btn-lg float-right" href="login">Login</a>
-        </sec:authorize>
-    </div>
-</nav>
+<jsp:include page="include/header1.jsp"/>
 <c:if test="${message != null}">
     <h1>${message}</h1>
 </c:if>
@@ -166,16 +144,19 @@
                                                                 <div class="container">
                                                                     <div class="row row-cols-3">
                                                                         <div class="col">
+                                                                            <p>Departure</p>
                                                                             <p class="time">${item.departureTime}</p>
-                                                                            <p>${item.flightRoute.departureAirport.code}</p>
+                                                                            <p>${item.flightRoute.departureAirport.name}<i style="font-size: 10px">(${item.flightRoute.departureAirport.code})</i></p>
                                                                         </div>
                                                                         <div class="col">
+                                                                            <p>Duration</p>
                                                                             <p class="time">${item.flightRoute.duration.toHoursPart()}h:${item.flightRoute.duration.toMinutesPart()}m</p>
-                                                                            <p class="name">${item.aircraft.name}<i style="font-size: 10px">(${item.aircraft.number})</i></p>
+                                                                            <p class="name">${item.aircraft.name}<i style="font-size: 15px">${item.aircraft.number}</i></p>
                                                                         </div>
                                                                         <div class="col">
+                                                                            <p>Destination</p>
                                                                             <p class="time">${item.arrivalTime}</p>
-                                                                            <p>${item.flightRoute.destinationAirport.code}</p>
+                                                                            <p>${item.flightRoute.destinationAirport.name}<i style="font-size: 10px">(${item.flightRoute.destinationAirport.code})</i></p>
                                                                         </div>
                                                                      <%--   <fmt:parseNumber var="economyQuantity"
                                                                                          type="number" value="${0}"/>
@@ -191,30 +172,18 @@
                                                                                                value="ECONOMY"/>
                                                                                         <c:set var="economySeatPrice"
                                                                                                value="${item2.price}"/>
-                                                                                        <%--<fmt:parseNumber
-                                                                                                var="economyQuantity"
-                                                                                                type="number"
-                                                                                                value="${economyQuantity + 1}"/>--%>
                                                                                     </c:when>
                                                                                     <c:when test="${item2.seatsType.toString() == 'FIRST_CLASS'}">
                                                                                         <c:set var="FIRSTCLASS"
                                                                                                value="FIRSTCLASS"/>
                                                                                         <c:set var="firstClassSeatPrice"
                                                                                                value="${item2.price}"/>
-                                                                                       <%-- <fmt:parseNumber
-                                                                                                var="firstClassQuantity"
-                                                                                                type="number"
-                                                                                                value="${firstClassQuantity + 1}"/>--%>
                                                                                     </c:when>
                                                                                     <c:when test="${item2.seatsType.toString() == 'BUSINESS'}">
                                                                                         <c:set var="BUSINESS"
                                                                                                value="BUSINESS"/>
                                                                                         <c:set var="businessSeatPrice"
                                                                                                value="${item2.price}"/>
-                                                                                    <%--    <fmt:parseNumber
-                                                                                                var="businessQuantity"
-                                                                                                type="number"
-                                                                                                value="${businessQuantity + 1}"/>--%>
                                                                                     </c:when>
                                                                                 </c:choose>
                                                                             </c:if>
@@ -275,49 +244,6 @@
                                                                             <p>${item.flightRoute.destinationAirport.code}</p>
                                                                         </div>
 
-                                                                       <%-- <fmt:parseNumber var="economyQuantity"
-                                                                                         type="number" value="${0}"/>
-                                                                        <fmt:parseNumber var="firstClassQuantity"
-                                                                                         type="number" value="${0}"/>
-                                                                        <fmt:parseNumber var="businessQuantity"
-                                                                                         type="number" value="${0}"/>
-                                                                        <c:forEach var="item2"
-                                                                                   items="${item.aircraftSeatsList}">
-                                                                            <c:if test="${item2.seatsStatus.id == 1}">
-                                                                                <c:choose>
-                                                                                    <c:when test="${item2.seatsType.id == 1}">
-                                                                                        <c:set var="ECONOMY"
-                                                                                               value="${item2.seatsType.id}"/>
-                                                                                        <c:set var="economySeatPrice"
-                                                                                               value="${item2.price}"/>
-                                                                                        <fmt:parseNumber
-                                                                                                var="economyQuantity"
-                                                                                                type="number"
-                                                                                                value="${economyQuantity + 1}"/>
-                                                                                    </c:when>
-                                                                                    <c:when test="${item2.seatsType.id == 2}">
-                                                                                        <c:set var="FIRSTCLASS"
-                                                                                               value="${item2.seatsType.id}"/>
-                                                                                        <c:set var="firstClassSeatPrice"
-                                                                                                         value="${item2.price}"/>
-                                                                                        <fmt:parseNumber
-                                                                                                var="firstClassQuantity"
-                                                                                                type="number"
-                                                                                                value="${firstClassQuantity + 1}"/>
-                                                                                    </c:when>
-                                                                                    <c:when test="${item2.seatsType.id == 3}">
-                                                                                        <c:set var="BUSINESS"
-                                                                                               value="${item2.seatsType.id}"/>
-                                                                                        <c:set var="businessSeatPrice"
-                                                                                               value="${item2.price}"/>
-                                                                                        <fmt:parseNumber
-                                                                                                var="businessQuantity"
-                                                                                                type="number"
-                                                                                                value="${businessQuantity + 1}"/>
-                                                                                    </c:when>
-                                                                                </c:choose>
-                                                                            </c:if>
-                                                                        </c:forEach>--%>
                                                                         <c:forEach var="item2" items="${item.aircraftSeatsList}">
                                                                             <c:if test="${item2.seatsStatus.toString().equals('AVAILABLE')}">
                                                                                 <c:choose>
@@ -326,20 +252,12 @@
                                                                                                value="ECONOMY"/>
                                                                                         <c:set var="economySeatPrice"
                                                                                                value="${item2.price}"/>
-                                                                                        <%--<fmt:parseNumber
-                                                                                                var="economyQuantity"
-                                                                                                type="number"
-                                                                                                value="${economyQuantity + 1}"/>--%>
                                                                                     </c:when>
                                                                                     <c:when test="${item2.seatsType.toString() == 'FIRST_CLASS'}">
                                                                                         <c:set var="FIRSTCLASS"
                                                                                                value="FIRSTCLASS"/>
                                                                                         <c:set var="firstClassSeatPrice"
                                                                                                value="${item2.price}"/>
-                                                                                        <%-- <fmt:parseNumber
-                                                                                                 var="firstClassQuantity"
-                                                                                                 type="number"
-                                                                                                 value="${firstClassQuantity + 1}"/>--%>
                                                                                     </c:when>
                                                                                     <c:when test="${item2.seatsType.toString() == 'BUSINESS'}">
                                                                                         <c:set var="BUSINESS"
@@ -419,7 +337,7 @@
         </div>
     </div>
 </c:if>
-<footer>
+<%--<footer>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -440,7 +358,8 @@
             </div>
         </div>
     </div>
-</footer>
+</footer>--%>
+<jsp:include page="include/footer1.jsp"/>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="${pageContext.request.contextPath}/resources/assets/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 

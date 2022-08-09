@@ -8,6 +8,7 @@ import com.mycompany.spring_mvc_project_final.repository.ImageRepository;
 import com.mycompany.spring_mvc_project_final.utils.ImageUtilis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
@@ -28,8 +29,8 @@ public class ImageService {
 
     @Autowired
     ImageRepository imageRepository;
-
-    public List<ImageEntity> uploadImage(MultipartFile[] files, HttpServletRequest request, AircraftsEntity aircraftsEntity, AirportsEntity airportsEntity, ServiceEntity serviceEntity) {
+    @Transactional(rollbackFor = Exception.class)
+    public List<ImageEntity> uploadImage(MultipartFile[] files, HttpServletRequest request, AirportsEntity airportsEntity, ServiceEntity serviceEntity) {
         List<ImageEntity> images = new ArrayList<>();
         for (MultipartFile file : files) {
             try {
@@ -57,7 +58,6 @@ public class ImageService {
                 ImageEntity image = new ImageEntity();
                 image.setName(name);
                 image.setAirport(airportsEntity);
-                image.setAircraft(aircraftsEntity);
                 image.setService(serviceEntity);
                 images.add(image);
 

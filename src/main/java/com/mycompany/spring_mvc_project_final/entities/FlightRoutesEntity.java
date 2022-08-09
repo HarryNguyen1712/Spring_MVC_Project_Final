@@ -6,11 +6,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.Duration;
-import java.time.LocalTime;
 import java.util.List;
 
 @Entity
-@Table(name = "flight_routes")
+@Table(name = "flightRoutes")
 public class FlightRoutesEntity {
 
     @Id
@@ -33,7 +32,7 @@ public class FlightRoutesEntity {
     @JoinColumn(name = "destination_id")
     private AirportsEntity destinationAirport;
 
-    @OneToMany(mappedBy = "flightRoute",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "flightRoute",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @Fetch(FetchMode.SUBSELECT)
     private List<FlightsEntity> flightList;
 

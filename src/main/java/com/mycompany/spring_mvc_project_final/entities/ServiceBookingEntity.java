@@ -1,12 +1,9 @@
 package com.mycompany.spring_mvc_project_final.entities;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "service_booking")
+@Table(name = "serviceBooking")
 public class ServiceBookingEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

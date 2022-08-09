@@ -85,11 +85,14 @@
                         </c:choose>--%>
                         <sec:authorize access="isAuthenticated()">
                             <sec:authorize access="hasRole('ROLE_USER')">
-                                <a type="button" class="btn btn-outline-warning btn-lg float-right" href="logout">Logout</a>
-                                <a class="btn btn-outline-warning btn-lg float-right mr-5" href="user/booking_history">Manage Account</a>
+                                <a type="button" class="btn btn-outline-warning btn-lg float-right"
+                                   href="logout">Logout</a>
+                                <a class="btn btn-outline-warning btn-lg float-right mr-5" href="user/booking_history">Manage
+                                    Account</a>
                             </sec:authorize>
                             <sec:authorize access="hasRole('ROLE_ADMIN')">
-                                <a type="button" class="btn btn-outline-warning btn-lg float-right" href="logout">Logout</a>
+                                <a type="button" class="btn btn-outline-warning btn-lg float-right"
+                                   href="logout">Logout</a>
                                 <a class="btn btn-outline-warning btn-lg float-right mr-5" href="admin/home">Manager</a>
                             </sec:authorize>
                         </sec:authorize>
@@ -97,7 +100,7 @@
                             <a type="button" class="btn btn-outline-warning btn-lg float-right" href="login">Login</a>
                         </sec:authorize>
                     </div>
-                    <div class="tabs-content">
+                    <div class="tabs-content" style="margin-top: 30px;">
                         <h4>Choose Your Direction:</h4>
                         <ul class="social-links">
                             <li><a href="https://facebook.com">Find us on <em>Facebook</em><i
@@ -108,14 +111,14 @@
                             <li><a href="https://instagram.com">Follow our <em>instagram</em><i
                                     class="fa fa-instagram"></i></a></li>
                         </ul>
-                    </div>
-                    <div class="page-direction-button">
-                        <a href="${pageContext.request.contextPath}/WEB-INF/pages/contact.html"><i
-                                class="fa fa-phone"></i>Contact Us Now</a>
+                        <div id="contact" class="page-direction-button">
+                            <a href="tel:0766601064"><i
+                                    class="fa fa-phone"></i>Contact Us Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 col-md-offset-1">
+            <div id="search" class="col-md-5 col-md-offset-1">
                 <section id="first-tab-group" class="tabgroup">
                     <div id="tab1">
                         <div class="submit-form">
@@ -125,44 +128,22 @@
                                     <div class="col-md-6">
                                         <fieldset>
                                             <label for="from">From:</label>
-                                            <select id="from" required name='flightRoute.departureAirport.name'
-                                                    onchange='this.form()'>
+                                            <select id="from" required name='flightRoute.departureAirport.name'>
                                                 <option value="">Select a location...</option>
                                                 <c:forEach var="item" items="${airports}">
                                                     <option value="${item.name}">${item.name}</option>
                                                 </c:forEach>
-                                                    <%-- <option value="Cambodia">Cambodia</option>
-                                                     <option value="Hong Kong">Hong Kong</option>
-                                                     <option value="India">India</option>
-                                                     <option value="Japan">Japan</option>
-                                                     <option value="Korea">Korea</option>
-                                                     <option value="Laos">Laos</option>
-                                                     <option value="Myanmar">Myanmar</option>
-                                                     <option value="Singapore">Singapore</option>
-                                                     <option value="Thailand">Thailand</option>
-                                                     <option value="Vietnam">Vietnam</option>--%>
                                             </select>
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset>
                                             <label for="to">To:</label>
-                                            <select id="to" required name="flightRoute.destinationAirport.name"
-                                                    onchange="this.form()">
+                                            <select id="to" required name="flightRoute.destinationAirport.name">
                                                 <option value="">Select a location...</option>
                                                 <c:forEach var="item" items="${airports}">
                                                     <option value="${item.name}">${item.name}</option>
                                                 </c:forEach>
-                                                    <%--<option value="Cambodia">Cambodia</option>
-                                                    <option value="Hong Kong">Hong Kong</option>
-                                                    <option value="India">India</option>
-                                                    <option value="Japan">Japan</option>
-                                                    <option value="Korea">Korea</option>
-                                                    <option value="Laos">Laos</option>
-                                                    <option value="Myanmar">Myanmar</option>
-                                                    <option value="Singapore">Singapore</option>
-                                                    <option value="Thailand">Thailand</option>
-                                                    <option value="Vietnam">Vietnam</option>--%>
                                             </select>
                                         </fieldset>
                                     </div>
@@ -218,296 +199,36 @@
     </div>
 </section>
 
-
-<div class="tabs-content" id="weather">
+<div style="text-align: center;margin: 5rem 0">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <div class="section-heading">
-                    <h2>Check Weather For 5 NEXT Days</h2>
-                </div>
+            <div class="col-xs-12 col-md-6">
+                <fieldset>
+                    <label for="from1">From:</label>
+                    <select class="form-control" id="from1" name='depart'>
+                        <option value="">Select a location...</option>
+                        <c:forEach var="item" items="${airports}">
+                            <option value="${item.id}">${item.name}</option>
+                        </c:forEach>
+                    </select>
+                </fieldset>
             </div>
-            <div class="wrapper">
-                <div class="col-md-12">
-                    <div class="weather-content">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <ul class="tabs clearfix" data-tabgroup="second-tab-group">
-                                    <li><a href="#monday" class="active">Monday</a></li>
-                                    <li><a href="#tuesday">Tuesday</a></li>
-                                    <li><a href="#wednesday">Wednesday</a></li>
-                                    <li><a href="#thursday">Thursday</a></li>
-                                    <li><a href="#friday">Friday</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-12">
-                                <section id="second-tab-group" class="weathergroup">
-                                    <div id="monday">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>Myanmar</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-03.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>32&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>26&deg;</span></li>
-                                                        <li>12PM <span>32&deg;</span></li>
-                                                        <li>6PM <span>28&deg;</span></li>
-                                                        <li>12AM <span>22&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>Thailand</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-02.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>28&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>20&deg;</span></li>
-                                                        <li>12PM <span>28&deg;</span></li>
-                                                        <li>6PM <span>26&deg;</span></li>
-                                                        <li>12AM <span>18&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>India</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-01.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>33&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>26&deg;</span></li>
-                                                        <li>12PM <span>33&deg;</span></li>
-                                                        <li>6PM <span>29&deg;</span></li>
-                                                        <li>12AM <span>27&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="tuesday">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>Myanmar</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-02.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>28&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>18&deg;</span></li>
-                                                        <li>12PM <span>27&deg;</span></li>
-                                                        <li>6PM <span>25&deg;</span></li>
-                                                        <li>12AM <span>17&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>Thailand</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-03.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>31&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>19&deg;</span></li>
-                                                        <li>12PM <span>28&deg;</span></li>
-                                                        <li>6PM <span>22&deg;</span></li>
-                                                        <li>12AM <span>18&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>India</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-01.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>26&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>19&deg;</span></li>
-                                                        <li>12PM <span>26&deg;</span></li>
-                                                        <li>6PM <span>22&deg;</span></li>
-                                                        <li>12AM <span>20&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="wednesday">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>Myanmar</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-03.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>31&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>19&deg;</span></li>
-                                                        <li>12PM <span>28&deg;</span></li>
-                                                        <li>6PM <span>22&deg;</span></li>
-                                                        <li>12AM <span>18&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>Thailand</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-01.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>34&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>28&deg;</span></li>
-                                                        <li>12PM <span>34&deg;</span></li>
-                                                        <li>6PM <span>30&deg;</span></li>
-                                                        <li>12AM <span>29&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>India</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-02.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>28&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>18&deg;</span></li>
-                                                        <li>12PM <span>27&deg;</span></li>
-                                                        <li>6PM <span>25&deg;</span></li>
-                                                        <li>12AM <span>17&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="thursday">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>Myanmar</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-01.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>27&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>21&deg;</span></li>
-                                                        <li>12PM <span>27&deg;</span></li>
-                                                        <li>6PM <span>22&deg;</span></li>
-                                                        <li>12AM <span>18&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>Thailand</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-02.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>28&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>18&deg;</span></li>
-                                                        <li>12PM <span>27&deg;</span></li>
-                                                        <li>6PM <span>25&deg;</span></li>
-                                                        <li>12AM <span>17&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>India</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-03.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>31&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>19&deg;</span></li>
-                                                        <li>12PM <span>28&deg;</span></li>
-                                                        <li>6PM <span>22&deg;</span></li>
-                                                        <li>12AM <span>18&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="friday">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>Myanmar</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-03.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>33&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>28&deg;</span></li>
-                                                        <li>12PM <span>33&deg;</span></li>
-                                                        <li>6PM <span>29&deg;</span></li>
-                                                        <li>12AM <span>27&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>Thailand</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-02.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>31&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>24&deg;</span></li>
-                                                        <li>12PM <span>31&deg;</span></li>
-                                                        <li>6PM <span>26&deg;</span></li>
-                                                        <li>12AM <span>23&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="weather-item">
-                                                    <h6>India</h6>
-                                                    <div class="weather-icon">
-                                                        <img src="${pageContext.request.contextPath}/resources/assets/img/weather-icon-01.png"
-                                                             alt="">
-                                                    </div>
-                                                    <span>28&deg;C</span>
-                                                    <ul class="time-weather">
-                                                        <li>6AM <span>24&deg;</span></li>
-                                                        <li>12PM <span>28&deg;</span></li>
-                                                        <li>6PM <span>26&deg;</span></li>
-                                                        <li>12AM <span>22&deg;</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-xs-12 col-md-6">
+                <fieldset>
+                    <label for="to1">To:</label>
+                    <select class="form-control" id="to1" required name="des">
+                        <option value="">Select a location...</option>
+                        <c:forEach var="item" items="${airports}">
+                            <option value="${item.id}">${item.name}</option>
+                        </c:forEach>
+                    </select>
+                </fieldset>
             </div>
+        </div>
+        <br><br>
+    </div>
+    <div class="container table-bordered">
+        <div id="search-home" class="row">
         </div>
     </div>
 </div>
@@ -519,18 +240,16 @@
             <div class="col-md-4">
                 <div class="service-item first-service">
                     <div class="service-icon"></div>
-                    <h4>Easy Tooplate</h4>
-                    <p>Donec varius porttitor iaculis. Integer sollicitudin erat et ligula viverra vulputate. In in quam
-                        efficitur, pulvinar justo ut, tempor nunc. Phasellus pharetra quis odio.</p>
+                    <h4>Easy Booking</h4>
+                    <p>Providing a variety of services including booking as well as side stuffs </p>
                     </a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="service-item second-service">
                     <div class="service-icon"></div>
-                    <h4>Unique Ideas</h4>
-                    <p>Cras ligula diam, tristique at aliquam at, fermentum auctor turpis. Proin leo massa, iaculis
-                        elementum massa et, consectetur varius dolor. Fusce sed ipsum sit.</p>
+                    <h4>Handful website</h4>
+                    <p>Can be easily accessed from all over the world, which is a goal to achieve</p>
                     </a>
                 </div>
             </div>
@@ -538,8 +257,7 @@
                 <div class="service-item third-service">
                     <div class="service-icon"></div>
                     <h4>Best Support</h4>
-                    <p>Fusce leo dui. Mauris et justo eget arcu ultricies porta. Nulla facilisi. Nulla nec risus sit
-                        amet magna hendrerit venenatis. Sed porta tincidunt lectus eget ultrices.</p>
+                    <p>Support offices are available 24/7 in order to help customer anytime and anywhere</p>
                     </a>
                 </div>
             </div>
@@ -548,126 +266,6 @@
 </section>
 
 
-<%--<div class="tabs-content" id="recommended-hotel">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-heading">
-                    <h2>Recommended Hotel For You</h2>
-                </div>
-            </div>
-            <div class="wrapper">
-                <div class="col-md-4">
-                    <ul class="tabs clearfix" data-tabgroup="third-tab-group">
-                        <li><a href="#livingroom" class="active">Living Room <i class="fa fa-angle-right"></i></a></li>
-                        <li><a href="#suitroom">Suit Room <i class="fa fa-angle-right"></i></a></li>
-                        <li><a href="#swimingpool">Swiming Pool <i class="fa fa-angle-right"></i></a></li>
-                        <li><a href="#massage">Massage Service <i class="fa fa-angle-right"></i></a></li>
-                        <li><a href="#fitness">Fitness Life <i class="fa fa-angle-right"></i></a></li>
-                        <li><a href="#event">Evening Event <i class="fa fa-angle-right"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <section id="third-tab-group" class="recommendedgroup">
-                    <div id="livingroom">
-                        <div class="text-content">
-                            <iframe width="100%" height="400px" src="https://www.youtube.com/embed/rMxTreSFMgE">
-                            </iframe>
-                        </div>
-                    </div>
-                    <div id="suitroom">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div id="owl-suiteroom" class="owl-carousel owl-theme">
-                                    <div class="item">
-                                        <div class="suiteroom-item">
-                                            <img src="${pageContext.request.contextPath}/resources/assets/img/suite-02.jpg"
-                                                 alt="">
-                                            <div class="text-content">
-                                                <h4>Clean And Relaxing Room</h4>
-                                                <span>Aurora Resort</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="suiteroom-item">
-                                            <img src="${pageContext.request.contextPath}/resources/assets/img/suite-01.jpg"
-                                                 alt="">
-                                            <div class="text-content">
-                                                <h4>Special Suite Room TV</h4>
-                                                <span>Khao Yai Hotel</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="suiteroom-item">
-                                            <img src="${pageContext.request.contextPath}/resources/assets/img/suite-03.jpg"
-                                                 alt="">
-                                            <div class="text-content">
-                                                <h4>The Best Sitting</h4>
-                                                <span>Hotel Grand</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="swimingpool">
-                        <img src="${pageContext.request.contextPath}/resources/assets/img/swiming-pool.jpg"
-                             alt="">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="text-content">
-                                    <h4>Lovely View Swiming Pool For Special Guests</h4>
-                                    <span>Victoria Resort and Spa</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="massage">
-                        <img src="${pageContext.request.contextPath}/resources/assets/img/massage-service.jpg"
-                             alt="">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="text-content">
-                                    <h4>Perfect Place For Relaxation</h4>
-                                    <span>Napali Beach</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="fitness">
-                        <img src="${pageContext.request.contextPath}/resources/assets/img/fitness-service.jpg"
-                             alt="">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="text-content">
-                                    <h4>Insane Street Workout</h4>
-                                    <span>Hua Hin Beach</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="event">
-                        <img src="${pageContext.request.contextPath}/resources/assets/img/evening-event.jpg"
-                             alt="">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="text-content">
-                                    <h4>Finest Winery Night</h4>
-                                    <span>Queen Restaurant</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
-</div>--%>
 
 
 <section id="most-visited">
@@ -680,17 +278,19 @@
             </div>
             <div class="col-md-12">
                 <div id="owl-mostvisited" class="owl-carousel owl-theme">
-                    <div class="item col-md-12">
-                        <div class="visited-item">
-                            <img src="${pageContext.request.contextPath}/resources/assets/img/place-01.jpg"
-                                 alt="">
-                            <div class="text-content">
-                                <h4>River Views</h4>
-                                <span>New York</span>
+                    <c:forEach items="${airports}" var="item">
+                        <div class="item col-md-12">
+                            <div class="visited-item">
+                                <img src="${pageContext.request.contextPath}/resources/images/${item.imageList.get(0).name}"
+                                     alt="" width="200" height="200">
+                                <div class="text-content">
+                                    <span>${item.name}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="item col-md-12">
+                    </c:forEach>
+
+                 <%--   <div class="item col-md-12">
                         <div class="visited-item">
                             <img src="${pageContext.request.contextPath}/resources/assets/img/place-02.jpg"
                                  alt="">
@@ -779,7 +379,7 @@
                                 <span>Tokyo</span>
                             </div>
                         </div>
-                    </div>
+                    </div>--%>
                 </div>
             </div>
         </div>
@@ -787,7 +387,7 @@
 </section>
 
 
-<footer>
+<%--<footer>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -813,9 +413,8 @@
             </div>
         </div>
     </div>
-</footer>
-
-
+</footer>--%>
+<jsp:include page="include/footer1.jsp"/>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="${pageContext.request.contextPath}/resources/assets/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
@@ -883,24 +482,101 @@
     let $from = $("#departure").datepicker('getDate');
     let $to = $("#return").datepicker('getDate');
     let dateFormat = "yy-mm-dd";
+    let $from1 = $('select[id$=from1]');
+    let $to1 = $('select[id$=to1]');
     $(document).ready(function () {
+        let fromID = $from1.val();
+        let toID = $to1.val();
+        if(fromID === '' && toID === '')
+        {
+            $.ajax({
+                type: 'GET',
+                url: 'search_home',
+                dataType: 'json',
+                data: {
+                    "departure_id": fromID,
+                    "destination_id": toID,
+                },
+                contentType: 'application/json',
+                success: function (data) {
+                    showFlight(data);
+                },
+                error: function () {
+                    alert('error');
+                }
+            });
+        }
 
         $('input[id$=departure]').datepicker({
             dateFormat: dateFormat,
             minDate: new Date()
-        }).on( "change", function() {
-            $('input[id$=return]').datepicker( "option", "minDate", getDate( this ) );
+        }).on("change", function () {
+            $('input[id$=return]').datepicker("option", "minDate", getDate(this));
         })
         ;
 
         $('input[id$=return]').datepicker({
             dateFormat: dateFormat,
             minDate: new Date()
-        }) .on( "change", function() {
-            $('input[id$=departure]').datepicker( "option", "maxDate", getDate( this ) );
-        })
-        ;
+        }).on("change", function () {
+            $('input[id$=departure]').datepicker("option", "maxDate", getDate(this));
+        });
+
+        $('select[id$=from1]').on("change", function () {
+            document.getElementById('search-home').innerHTML = "";
+            search();
+        });
+        $('select[id$=to1]').on("change", function () {
+            document.getElementById('search-home').innerHTML = "";
+            search();
+        });
     });
+
+    function showFlight(data) {
+        let i = 0, len = data.length;
+        for (; i < len; ++i) {
+            const flight = data[i];
+            $('#search-home').append('<div class="col-md-4 table-bordered" style="margin: 0.5rem 0">' +
+                '<div>' +
+                '<div><img src="${pageContext.request.contextPath}/resources/images/' + flight.destinationImageName + '" width="200" height="200"> </div> <br>' +
+                '<div><h4>' + flight.departureAirport + '(' + flight.departureAirportCode + ') to ' + flight.destinationAirport + '(' + flight.destinationAirportCode + ')</h4>' +
+                ' <h4>Departure:' + flight.date + '</h4>' +
+                ' <h4>From</h4><h5>' + flight.price + '$</h5>' +
+                '</div> ' +
+                '<button name="setFlight" class="btn btn-success" onclick="setFlight(\'' + flight.departureAirport + '\',\'' + flight.destinationAirport + '\',\'' + flight.date + '\')" >Select</button> ' +
+                '</div> ' +
+                '</div>');
+        }
+    }
+
+    function search() {
+        let fromID = $from1.val();
+        let toID = $to1.val();
+        $.ajax({
+            type: 'GET',
+            url: 'search_home',
+            dataType: 'json',
+            data: {
+                "departure_id": fromID,
+                "destination_id": toID,
+            },
+            contentType: 'application/json',
+            success: function (data) {
+                showFlight(data);
+            },
+            error: function () {
+                alert('error');
+            }
+        });
+    }
+
+    function setFlight(departureAirport, destinationAirport, date) {
+        $("#from").val(departureAirport);
+        $("#to").val(destinationAirport);
+        $("#departure").val(date);
+        document.getElementById("search").scrollIntoView({behavior: "smooth"})
+    }
+
 
     function checkDepartDate() {
         if ($from > $to && $from != null && $to != null) {
@@ -919,11 +595,12 @@
             document.getElementById('checkDate').innerHTML = '';
         }
     }
-    function getDate( element ) {
+
+    function getDate(element) {
         let date;
         try {
-            date = $.datepicker.parseDate( dateFormat, element.value );
-        } catch( error ) {
+            date = $.datepicker.parseDate(dateFormat, element.value);
+        } catch (error) {
             date = null;
         }
         return date;

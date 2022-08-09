@@ -127,55 +127,6 @@
                                             </ul>
                                         </div>
                                         <div class="card-body ">
-                                           <%-- <div class="table-scrollable">
-                                                <table class="table table-hover table-checkable order-column full-width"
-                                                       id="example4">
-                                                    <thead>
-                                                    <tr>
-                                                        <th class="center"> Booking Date</th>
-                                                        <th class="center"> Booking Number</th>
-                                                        <th class="center"> Luggage</th>
-                                                        &lt;%&ndash;       <th class="center"> Name </th>
-                                                               <th class="center"> Address </th>
-                                                               <th class="center"> Mobile </th>
-                                                               <th class="center"> Email </th>
-                                                               <th class="center"> Gender </th>
-                                                               <th class="center"> Birthday </th>&ndash;%&gt;
-                                                        <th class="center"> Status</th>
-                                                        <th class="center"> Amount</th>
-                                                        <th id="ignore" class="center"> Action</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <c:forEach items="${listBooking.iterator()}" var="item">
-                                                        <tr class="odd gradeX">
-                                                            <td class="center">${item.bookingDate}</td>
-                                                            <td class="center">${item.bookingNumber}</td>
-                                                            <td class="center">${item.luggage}</td>
-                                                                &lt;%&ndash;        <td class="center">${item.fullName}</td>
-                                                                        <td class="center">${item.address}</td>
-                                                                        <td class="center"><a href="tel:${item.phoneNumber}">
-                                                                                ${item.phoneNumber}</a></td>
-                                                                        <td class="center"><a href="mailto:${item.email}">
-                                                                                ${item.email}</a></td>
-                                                                        <td class="center">${item.genderEntity.genderEnum}</td>
-                                                                        <td class="center">${item.birthday}</td>&ndash;%&gt;
-                                                            <td class="center">${item.bookingStatusEntity.status}</td>
-                                                            <td class="center">${item.paymentEntity.amount}</td>
-                                                            <td class="center">
-                                                                <a href="booking_details?id=${item.id}"
-                                                                   class="btn btn-tbl-edit btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <a class="btn btn-tbl-delete btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </c:forEach>
-                                                    </tbody>
-                                                </table>
-                                            </div>--%>
                                             <div class="table-scrollable">
                                                 <table class="table table-hover table-checkable order-column full-width" id="example4">
                                                     <thead>
@@ -204,8 +155,8 @@
                                                                 <a href="booking_details?id=${item.id}" class="btn btn-tbl-edit btn-xs">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
-                                                                <a class="btn btn-tbl-delete btn-xs">
-                                                                    <i class="fa fa-trash-o "></i>
+                                                                <a href="printInvoice?number=${item.bookingNumber}" class="btn btn-tbl-edit btn-xs">
+                                                                    <i class="fa fa-info-circle "></i>
                                                                 </a>
                                                             </td>
                                                         </tr>

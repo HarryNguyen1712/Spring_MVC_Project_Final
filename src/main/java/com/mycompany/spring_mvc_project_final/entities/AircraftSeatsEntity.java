@@ -7,7 +7,7 @@ import com.mycompany.spring_mvc_project_final.enums.SeatTypeEnum;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "aircraft_seats")
+@Table(name = "aircraftSeats")
 public class AircraftSeatsEntity {
 
     @Id

@@ -1,15 +1,14 @@
 package com.mycompany.spring_mvc_project_final.entities;
 
-import javax.persistence.*;
-import javax.validation.constraints.Min;
-
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @Entity
-@Table(name = "credit_card")
+@Table(name = "creditCard")
 public class CreditCardEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -368,7 +368,7 @@
                 <div class="m-2">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="card-box mt-3 ">
+                            <%--<div class="card-box mt-3 ">
                                 <div class="card-head">
                                     <header>Booking Details</header>
                                     <button id="panel-button"
@@ -478,17 +478,17 @@
                                                     Services
                                                 </button>
                                                 <dialog id="confirm-delete${item.id}" class="site-dialog cf">
-                                                        <%--    <form:form modelAttribute="test" method="get" action="editServiceBooking" id="${item.id}">--%>
+                                                        &lt;%&ndash;    <form:form modelAttribute="test" method="get" action="editServiceBooking" id="${item.id}">&ndash;%&gt;
                                                     <input type="text" name="idBooking"
                                                            value="${idBooking}" readonly hidden>
                                                     <header class="dialog-header">
                                                         <h1 style="">Services</h1>
-                                                            <%--  <c:forEach items="${service}" var="item1" varStatus="status1">--%>
+                                                            &lt;%&ndash;  <c:forEach items="${service}" var="item1" varStatus="status1">&ndash;%&gt;
                                                         <c:forEach items="${item.serviceBookingEntities}" var="item1">
-                                                            <%-- <c:if test="${item2.serviceEntity.id==item1.id}">
+                                                            &lt;%&ndash; <c:if test="${item2.serviceEntity.id==item1.id}">
                                                                <c:set value="${item2.quantity}" var="quantity"> </c:set>
                                                              </c:if>
-                                                           </c:forEach>--%>
+                                                           </c:forEach>&ndash;%&gt;
                                                             <input type="text"
                                                                    value="${item.id}" hidden readonly>
                                                             <input type="number" id="${item1.id}"
@@ -499,7 +499,7 @@
                                                                    style="color:white;">${item1.serviceEntity.name}:
                                                                 &ensp;
                                                                 $${item1.serviceEntity.price * item1.quantity} </label><br>
-                                                            <%--   <c:set value="0" var="quantity"> </c:set>--%>
+                                                            &lt;%&ndash;   <c:set value="0" var="quantity"> </c:set>&ndash;%&gt;
                                                         </c:forEach>
                                                         <div style="position: absolute; right: 0; top: 0; text-align: right">
                                                             <button class="btn btn-cancel"
@@ -509,11 +509,144 @@
                                                             </button>
                                                         </div>
                                                     </header>
-                                                        <%--   </form:form>--%>
+                                                        &lt;%&ndash;   </form:form>&ndash;%&gt;
                                                 </dialog>
                                             </div>
                                         </div>
                                     </div>
+                                </c:forEach>
+                            </div>--%>
+                            <div class="card-box">
+                                <div class="card-head">
+                                    <header>Booking Details</header>
+                                    <button id="panel-button"
+                                            class="mdl-button mdl-js-button mdl-button--icon pull-right"
+                                            data-upgraded=",MaterialButton">
+                                        <i class="material-icons">more_vert</i>
+                                    </button>
+                                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                                        data-mdl-for="panel-button">
+                                        <li class="mdl-menu__item"><i class="material-icons">assistant_photo</i>Action
+                                        </li>
+                                        <li class="mdl-menu__item"><i class="material-icons">print</i>Another action
+                                        </li>
+                                        <li class="mdl-menu__item"><i class="material-icons">favorite</i>Something else
+                                            here
+                                        </li>
+                                    </ul>
+                                </div>
+                                <c:forEach items="${flightList}" var="flight">
+                                    <div class="col-lg-12 p-t-20" style="text-align: center">
+                                        <h2 class="display-2">Flight: ${flight.flightRoute.departureAirport.name} to ${flight.flightRoute.destinationAirport.name}</h2>
+                                    </div>
+                                    <c:forEach items="${listBookingDetail}" var="item">
+                                        <c:if test="${item.flightsEntity.id == flight.id }">
+                                            <div class="card-body row border p-3" style="margin: 1em 2em">
+                                                <div class="col-lg-12 p-t-20">
+                                                    <c:choose>
+                                                        <c:when test="${item.bookingStatusEnum=='COMPLETED'}">
+                                                            <button type="button" class="btn btn-primary">${item.bookingStatusEnum}</button>
+                                                        </c:when>
+                                                        <c:when test="${item.bookingStatusEnum=='BOOKED'}">
+                                                            <button type="button" class="btn btn-success">${item.bookingStatusEnum}</button>
+                                                            <c:if test="${cancelDate.isBefore(item.flightsEntity.departure.atTime(item.flightsEntity.departureTime))}">
+                                                                <a href="../cancel_booking?id=${item.id}&number=${item.bookingEntity.bookingNumber}" class="btn btn-outline-danger ml-3">CANCEL BOOKING</a>
+                                                            </c:if>
+                                                        </c:when>
+                                                        <c:when test="${item.bookingStatusEnum=='CHECK_IN'}">
+                                                            <button type="button" class="btn btn-info">${item.bookingStatusEnum}</button>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <button type="button" class="btn btn-danger">${item.bookingStatusEnum}</button>
+                                                        </c:otherwise>
+                                                    </c:choose>
+
+                                                </div>
+                                                <div class="col-lg-3 p-t-20">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                        <input class="mdl-textfield__input" type="text" name="number"
+                                                               value="${item.flightsEntity.departure}" readonly>
+                                                        <label class="mdl-textfield__label">Departure Date</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 p-t-20">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                        <input class="mdl-textfield__input" type="text" name="number"
+                                                               value="${item.flightsEntity.departureTime}" readonly>
+                                                        <label class="mdl-textfield__label">Departure Time</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 p-t-20">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                        <input class="mdl-textfield__input" type="text" name="number"
+                                                               value="${item.flightsEntity.arrival}" readonly>
+                                                        <label class="mdl-textfield__label">arrival Date</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 p-t-20">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                        <input class="mdl-textfield__input" type="text" name="number"
+                                                               value="${item.flightsEntity.arrivalTime}" readonly>
+                                                        <label class="mdl-textfield__label">Departure Time</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 p-t-20">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                        <input class="mdl-textfield__input" type="text" name="number"
+                                                               value="${item.flightsEntity.flightRoute.departureAirport.name}"
+                                                               readonly>
+                                                        <label class="mdl-textfield__label">Departure Place</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 p-t-20">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                        <input class="mdl-textfield__input" type="text" name="number"
+                                                               value="${item.flightsEntity.flightRoute.destinationAirport.name}"
+                                                               readonly>
+                                                        <label class="mdl-textfield__label">Destination Place</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 p-t-20">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                        <input class="mdl-textfield__input" type="text" name="number"
+                                                               value="${item.passengersEntity.genderEnum}" readonly>
+                                                        <label class="mdl-textfield__label">Gender</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 p-t-20">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                        <input class="mdl-textfield__input" type="text" name="number"
+                                                               value="${item.passengersEntity.fullName}" readonly>
+                                                        <label class="mdl-textfield__label">Full Name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 p-t-20">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                        <input class="mdl-textfield__input" type="text" name="number"
+                                                               value="${item.passengersEntity.idenCode}" readonly>
+                                                        <label class="mdl-textfield__label">Identify Code</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 p-t-20">
+                                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                                        <input class="mdl-textfield__input" type="text" name="number"
+                                                               value="${item.seatsEntity.number}" readonly>
+                                                        <label class="mdl-textfield__label">Seat Number</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 p-t-20">
+                                                    <c:forEach items="${item.serviceBookingEntities}" var="services">
+                                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width input-group input-group-sm mb-3 col-lg-3 p-t-20" style="float: left">
+                                                            <input type="number"  id="${item.id}${services.id}" style="width: 5em;float: left;margin-right: 5px"
+                                                                   min="0" class="form-control"
+                                                                   value="${services.quantity}" readonly/>
+                                                            <label for="${item.id}${services.id}" >${services.serviceEntity.name}</label><br>
+                                                        </div>
+                                                    </c:forEach>
+                                                </div>
+                                            </div>
+                                        </c:if>
+                                    </c:forEach>
                                 </c:forEach>
                             </div>
                         </div>

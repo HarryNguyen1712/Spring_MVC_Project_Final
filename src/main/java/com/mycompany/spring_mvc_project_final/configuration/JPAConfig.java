@@ -5,9 +5,7 @@
  */
 package com.mycompany.spring_mvc_project_final.configuration;
 
-import java.util.Properties;
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
@@ -19,9 +17,13 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.mycompany.spring_mvc_project_final.repository")
+
 public class JPAConfig {
 
     @Bean
@@ -31,7 +33,10 @@ public class JPAConfig {
         dataSource.setUrl("jdbc:mysql://localhost:3306/jv42_project_final?characterEncoding=UTF-8");
         dataSource.setUsername("root");
         dataSource.setPassword("Speedypro99");
-
+//        dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+//        dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:orcl1");
+//        dataSource.setUsername("hr");
+//        dataSource.setPassword("hr");
         return dataSource;
     }
 
@@ -52,6 +57,7 @@ public class JPAConfig {
 
     final Properties additionalProperties() {
         final Properties hibernateProperties = new Properties();
+        hibernateProperties.setProperty("hibernate.ddl-auto", "create");
         hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
         hibernateProperties.setProperty("hibernate.show_sql", "false");

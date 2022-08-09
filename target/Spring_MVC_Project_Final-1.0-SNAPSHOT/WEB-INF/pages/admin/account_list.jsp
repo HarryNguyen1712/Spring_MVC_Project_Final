@@ -37,63 +37,7 @@
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-sidebar-color logo-dark">
 <div class="page-wrapper">
   <!-- start header -->
-  <div class="page-header navbar navbar-fixed-top">
-    <div class="page-header-inner ">
-      <!-- logo start -->
-      <div class="page-logo">
-        <a href="index.html">
-          <img alt="" src="assets/img/logo.png">
-          <span class="logo-default" >Spice</span> </a>
-      </div>
-      <!-- logo end -->
-
-
-
-      <!-- start mobile menu -->
-
-      <!-- end mobile menu -->
-      <!-- start header menu -->
-      <div class="top-menu">
-        <ul class="nav navbar-nav pull-right">
-          <!-- start notification dropdown -->
-
-          <!-- end notification dropdown -->
-          <!-- start message dropdown -->
-
-          <!-- end message dropdown -->
-          <!-- start manage user dropdown -->
-          <li class="dropdown dropdown-user">
-            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-              <img alt="" class="img-circle " src="assets/img/dp.jpg" />
-              <span class="username username-hide-on-mobile"><security:authorize access="isAuthenticated()"><security:authentication property="principal.username" /> </security:authorize></span>
-              <i class="fa fa-angle-down"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-default animated jello">
-              <li>
-                <a href="profile">
-                  <i class="icon-user"></i> Profile </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="icon-settings"></i> Settings
-                </a>
-              </li>
-
-              <li class="divider"> </li>
-
-              <li>
-                <a href="/logout">
-                  <i class="icon-logout"></i> Log Out </a>
-              </li>
-            </ul>
-          </li>
-          <!-- end manage user dropdown -->
-
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <jsp:include page="../include/header.jsp"></jsp:include>
   <!-- end header -->
   <!-- start page container -->
   <div class="page-container" >
@@ -108,87 +52,17 @@
             <div class=" pull-left">
               <div class="page-title">Dashboard</div>
             </div>
-            <ol class="breadcrumb page-breadcrumb pull-right">
-              <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
-              </li>
-              <li class="active">Dashboard</li>
-            </ol>
           </div>
         </div>
         <!-- start widget -->
         <div class="state-overview">
           <div class="row">
-            <div class="col-xl-3 col-md-6 col-12">
-              <div class="info-box bg-blue">
-                <span class="info-box-icon push-bottom"><i class="material-icons">style</i></span>
-                <div class="info-box-content">
-                  <span class="info-box-text">Orders</span>
-                  <span class="info-box-number">450</span>
-                  <div class="progress">
-                    <div class="progress-bar width-60"></div>
-                  </div>
-                  <span class="progress-description">
-                                                60% Increase in 28 Days
-                                            </span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-            </div>
             <!-- /.col -->
-            <div class="col-xl-3 col-md-6 col-12">
-              <div class="info-box bg-orange">
-                <span class="info-box-icon push-bottom"><i class="material-icons">card_travel</i></span>
-                <div class="info-box-content">
-                  <span class="info-box-text">New Booking</span>
-                  <span class="info-box-number">155</span>
-                  <div class="progress">
-                    <div class="progress-bar width-40"></div>
-                  </div>
-                  <span class="progress-description">
-                                                40% Increase in 28 Days
-                                            </span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-            </div>
+
             <!-- /.col -->
-            <div class="col-xl-3 col-md-6 col-12">
-              <div class="info-box bg-purple">
-                <span class="info-box-icon push-bottom"><i class="material-icons">phone_in_talk</i></span>
-                <div class="info-box-content">
-                  <span class="info-box-text">Inquiry</span>
-                  <span class="info-box-number">52</span>
-                  <div class="progress">
-                    <div class="progress-bar width-80"></div>
-                  </div>
-                  <span class="progress-description">
-                                                80% Increase in 28 Days
-                                            </span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-            </div>
+
             <!-- /.col -->
-            <div class="col-xl-3 col-md-6 col-12">
-              <div class="info-box bg-success">
-                <span class="info-box-icon push-bottom"><i class="material-icons">monetization_on</i></span>
-                <div class="info-box-content">
-                  <span class="info-box-text">Total Earning</span>
-                  <span class="info-box-number">13,921</span><span>$</span>
-                  <div class="progress">
-                    <div class="progress-bar width-60"></div>
-                  </div>
-                  <span class="progress-description">
-                                                60% Increase in 28 Days
-                                            </span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-            </div>
+
             <!-- /.col -->
           </div>
         </div>
@@ -245,7 +119,7 @@
                               <td class="center"><c:out value="${item.email}"/></td>
                               <td class="center"><c:out value="${item.birthday}"/></td>
                               <td class="center"><c:out value="${item.address}"/></td>
-                              <td class="center"><c:out value="${item.genderEntity.genderEnum}"/></td>
+                              <td class="center"><c:out value="${item.genderEnum}"/></td>
                               <td class="center"><c:out value="${item.phoneNumber}"/></td>
                               <td class="center"><p id="${item.status}"><c:out value="${item.status}"/></p></td>
                               <td class="center">

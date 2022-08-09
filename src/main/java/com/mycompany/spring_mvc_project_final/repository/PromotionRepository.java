@@ -8,6 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface PromotionRepository extends CrudRepository<PromotionEntity,Integer> {
-     Optional<PromotionEntity> findByName(String name);
+     Optional<PromotionEntity> findByCode(String code);
 
 }
