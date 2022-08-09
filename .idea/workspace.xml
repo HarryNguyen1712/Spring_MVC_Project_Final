@@ -10,113 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df8bed81-8729-4a92-b83b-7657d027d969" name="Changes" comment="Update project">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/GuestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/model/Flight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/model/ServiceBookingList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/ConstantUtilis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/EmailSenderUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jdbc-oracle.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/ojdbc10-19.15.0.0.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/ojdbc8-21.6.0.0.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/include/footer1.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/include/header1.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/invoice.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/assets/img/invoice/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/assets/img/invoice/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-04-danang1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-04-hainoi1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-04-saigon1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-05-hue1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-05-phuquoc1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-05-thanhhoa1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-10-15-06-dalat1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-11-01-27-extraMeal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-11-01-29-insurance.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-11-01-29-insurance2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-14-07-30-" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-05-14-07-31-" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/luggage1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-08-09-19-15-20180928_140225.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/2022-08-09-19-15-Ã¡das.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/JPAConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/JPAConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/MailSenderConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/MailSenderConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/MvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/MvcConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/configuration/SessionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/BookingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/SearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/AircraftSeatsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/AircraftSeatsEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/AircraftsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/AircraftsEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/BookingDetailEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/BookingDetailEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/CreditCardEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/CreditCardEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/FeeAndCarrierChargesEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/FeeAndCarrierChargesEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/FlightRoutesEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/FlightRoutesEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/ImageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/ImageEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/PromotionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/PromotionEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/SeatsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/SeatsEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/ServiceBookingEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/ServiceBookingEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/UserRoleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/entities/UserRoleEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/model/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/model/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/AircraftSeatsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/AircraftSeatsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/BookingDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/BookingDetailRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/FlightRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/FlightRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/FlightRoutesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/FlightRoutesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/PaymentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/PaymentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/PromotionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/repository/PromotionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/AircraftSeatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/AircraftSeatService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/BookingDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/BookingDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/FlightService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/FlightService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/FlightsRoutesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/FlightsRoutesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/ImageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/PaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/PromotionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/PromotionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/service/UserDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/AircraftSeatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/AircraftSeatUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/AircraftUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/AircraftUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/BookingDetailUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/BookingDetailUtilis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/BookingUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/BookingUtilis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/Convert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/Convert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/CreditCardUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/CreditCardUtilis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/FlightUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/FlightUtilis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/PromotionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/PromotionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/ServiceUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/ServiceUtilis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/UserUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/UserUtilis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/account_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/account_list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/admin/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/booking_details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/booking_details.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/booking_history.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/booking_history.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/done.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/done.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/flight_check.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/flight_check.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/include/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/include/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/aircraft.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/aircraft.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/airport_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/airport_list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/booking_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/booking_detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/flight.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/flight.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/FlightRouteUtilis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/spring_mvc_project_final/utils/FlightRouteUtilis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/flight_route.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/flight_route.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/flight_route_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/flight_route_list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/promotion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/promotion.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/promotion_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/promotion_list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/service_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manager/service_list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/passenger.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/passenger.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/payment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/payment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/search.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/seat_booking.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/seat_booking.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/service_booking.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/service_booking.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/booking_details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/booking_details.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/booking_history.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/booking_history.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/user/profile.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/spring_mvc_project_final/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/spring_mvc_project_final/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/spring_mvc_project_final/repository/PaymentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/spring_mvc_project_final/repository/PaymentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/spring_mvc_project_final/service/PaymentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/classes/com/mycompany/spring_mvc_project_final/service/PaymentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/pages/manager/flight_route.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spring_MVC_Project_Final-1.0-SNAPSHOT/WEB-INF/pages/manager/flight_route.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/spring_mvc_project_final/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/spring_mvc_project_final/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/spring_mvc_project_final/repository/PaymentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/spring_mvc_project_final/repository/PaymentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mycompany/spring_mvc_project_final/service/PaymentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/spring_mvc_project_final/service/PaymentService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,6 +96,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -828,7 +731,7 @@
       <workItem from="1660024073010" duration="729000" />
       <workItem from="1660024815880" duration="305000" />
       <workItem from="1660039309901" duration="55000" />
-      <workItem from="1660044679012" duration="1228000" />
+      <workItem from="1660044679012" duration="5200000" />
     </task>
     <task id="LOCAL-00001" summary="Update project">
       <created>1660025407473</created>
@@ -862,6 +765,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Update project" />
     <option name="LAST_COMMIT_MESSAGE" value="Update project" />
   </component>

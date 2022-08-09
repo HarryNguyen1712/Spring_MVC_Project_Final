@@ -186,12 +186,12 @@
                                     <label >Duration</label>
                                     <div class="form-control-wrapper">
                                         <c:choose>
-                                            <c:when test="${flightRoute.duration.toMinutesPart()==0}">
-                                                <input type="text" class="form-control html-duration-picker" placeholder="Time" name="duration1" data-hide-seconds value="${flightRoute.duration.toHoursPart()}:0${flightRoute.duration.toMinutesPart()}" required >
+                                            <c:when test="${flightRoute.duration.toMinutesPart()<10 and flightRoute.duration.toSecondsPart()==0}">
+                                                <input type="text" class="form-control html-duration-picker" placeholder="Time" name="duration1"  value="${flightRoute.duration.toHoursPart()}:0${flightRoute.duration.toMinutesPart()}:00" required >
                                             </c:when>
-                                            <c:otherwise>
-                                                <input type="text" class="form-control html-duration-picker" placeholder="Time" name="duration1" data-hide-seconds value="${flightRoute.duration.toHoursPart()}:${flightRoute.duration.toMinutesPart()}" required >
-                                            </c:otherwise>
+                                            <c:when test="${flightRoute.duration.toMinutesPart()>10 and flightRoute.duration.toSecondsPart()==0}">
+                                                <input type="text" class="form-control html-duration-picker" placeholder="Time" name="duration1" value="${flightRoute.duration.toHoursPart()}:${flightRoute.duration.toMinutesPart()}:00" required >
+                                            </c:when>
                                         </c:choose>
                                     </div>
                                 </div>

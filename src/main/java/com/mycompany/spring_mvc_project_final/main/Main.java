@@ -31,12 +31,12 @@ public class Main {
     public static void main(String[] args) throws ParseException,Exception {
         testConnection();
         System.out.println("password===>" + encrytePassword("manager"));
-        LocalDateTime from = LocalDateTime.of(LocalDate.parse("2022-04-03", DateTimeFormatter.ofPattern("yyyy-MM-dd")),LocalTime.parse("23:20",DateTimeFormatter.ofPattern("HH:mm")));
-        LocalDateTime to = LocalDateTime.of(LocalDate.parse("2022-04-04", DateTimeFormatter.ofPattern("yyyy-MM-dd")),LocalTime.parse("23:30",DateTimeFormatter.ofPattern("HH:mm")));
+        LocalDateTime from = LocalDateTime.of(LocalDate.parse("2022-04-03", DateTimeFormatter.ofPattern("yyyy-MM-dd")),LocalTime.parse("23:20:20",DateTimeFormatter.ofPattern("HH:mm:ss")));
+        LocalDateTime to = LocalDateTime.of(LocalDate.parse("2022-04-05", DateTimeFormatter.ofPattern("yyyy-MM-dd")),LocalTime.parse("23:30:30",DateTimeFormatter.ofPattern("HH:mm:ss")));
         Duration duration = Duration.between(from, to);
 
 
-        System.out.println(duration.toHoursPart());
+        System.out.println("ssssss"+duration);
         /*BookingEntity bookingEntity = new BookingEntity();
         LocalDateTime from = LocalDateTime.of(LocalDate.parse("2022-04-03", DateTimeFormatter.ofPattern("yyyy-MM-dd")),LocalTime.parse("23:20",DateTimeFormatter.ofPattern("HH:mm")));
         LocalDateTime to = LocalDateTime.of(LocalDate.parse("2022-04-06", DateTimeFormatter.ofPattern("yyyy-MM-dd")),LocalTime.parse("23:30",DateTimeFormatter.ofPattern("HH:mm")));
